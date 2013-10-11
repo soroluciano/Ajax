@@ -19,7 +19,6 @@ session.setAttribute("nombre", nombrePersona);
 
 
 
-/*out.write(nombrePersona);*/
 
 HashMap<String,Materia> listadoMateria2=new	HashMap<String,Materia>();	
 
@@ -40,7 +39,11 @@ listadoMateria2=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona).obtenerM
 		}
 	}
 	
-	 
+	else
+	{
+		out.write("No existe el usuario");
+		
+	}
 	
 
 	

@@ -30,7 +30,7 @@ package Ajax;
 		
 		
 			Alumno a1 = new Alumno("pepe","lopez");
-			Alumno a2= new Alumno("pablo","gimenez");
+			Alumno a2= new Alumno("pancho","gimenez");
 			
 			a1.setListaMaterias(listaMaterias);
 			a2.setListaMaterias(listaMaterias);

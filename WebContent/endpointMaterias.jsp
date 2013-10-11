@@ -17,7 +17,7 @@
 String nombrePersona=request.getParameter("nombre");
 session.setAttribute("nombre", nombrePersona);
 
-nombrePersona="pepe";
+
 
 /*out.write(nombrePersona);*/
 

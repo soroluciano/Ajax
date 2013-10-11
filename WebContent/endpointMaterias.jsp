@@ -36,7 +36,7 @@ listadoMateria2=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona).obtenerM
 		for(Materia materia :listadoMateria2.values())
 		{
 		out.print(materia.toString());
-			
+		out.write("</br>");	
 		}
 	}
 	

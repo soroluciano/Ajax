@@ -45,7 +45,7 @@ function recuperarMaterias()
 }
 
 </script>
-
+<label>Ingrese Alumno:</label>
 <input type="text" id="nombre" size="77"/>
 <input type="button" value="Consultar" onclick="recuperarMaterias();"/>
 <br/>

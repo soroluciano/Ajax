@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<a href="menuPrincipal.jsp">Menu principal</a>
 </body>
 </html>

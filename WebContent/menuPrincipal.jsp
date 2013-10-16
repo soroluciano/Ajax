@@ -8,5 +8,12 @@
 </head>
 <body>
 
+<ul>
+<li><a href="abmMaterias.jsp">Materias</a></li>
+<li><a href="abmUusarios.jsp">usuarios</a></li>
+<li><a href="cursos.jsp">Cursos</a></li>
+</ul>
+
+
 </body>
 </html>

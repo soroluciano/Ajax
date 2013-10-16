@@ -1,5 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="Ajax.CacheAlumnos"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="Ajax.Alumno" %> 
+<%@page import="Ajax.Materia" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,6 +10,38 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="menuPrincipal.jsp">Menu principal</a>
+
+
+<%
+
+String nombre=(String)session.getAttribute("nombre");
+
+Alumno alumno = new Alumno();
+alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombre);
+
+
+
+	for(Materia materia : alumno.obtenerMaterias().values())
+	{
+		out.write("</br>");
+		out.print(materia.toString());
+		
+		
+		
+		out.write("<input type='button' value='borrar' onclick='eliminarMateria();'/>");
+		out.write("</br>");
+		
+		
+	}
+	
+	
+	
+%>
+
+
+
+
 
 </body>
 </html>

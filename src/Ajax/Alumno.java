@@ -70,8 +70,21 @@ public class Alumno {
 		 
 	 }
 	 
+	 public void agregarMateria(String key,Materia materia)
+	 {
+		 
+		 this.listaMaterias.put(key, materia);
+		 
+	 }
 	 
-	 
-	 
+	 public void eliminarMateria(String key)
+	 {
+		 
+		 this.listaMaterias.remove(key);
+		 
+	 }
 	
+	 /*faltaria el editar materia*/
+	 
+	 
 }

@@ -29,7 +29,7 @@ alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombre);
 		
 		
 		
-		out.write("<input type='button' value='borrar' onclick='eliminarMateria();'/>");
+		out.write("<a href='eliminar.jsp'>eliminar</a>");
 		out.write("</br>");
 		
 		

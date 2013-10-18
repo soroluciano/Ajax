@@ -16,7 +16,15 @@ String pass=request.getParameter("pass");
 session.setAttribute("nombre", nombre); 
 session.setAttribute("pass",pass);
 
+if((CacheAlumnos.getInstance().ObtenerAlumno(nombre).getNombre())!=null)
+{
+	
 
+ response.sendRedirect("menuPrincipal.jsp"); 
+
+
+
+}
 
 %>
 <a href="menuPrincipal.jsp">menu principal</a>

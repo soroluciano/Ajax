@@ -6,17 +6,29 @@ import java.util.HashMap;
 public class Alumno {
  
 
-	String nombre;
-	String apellido;
-	
+	private String nombre;
+	private String apellido;
+	private String password;
 	
 	private HashMap<String,Materia> listaMaterias;
 	
-	public Alumno(String nombre,String apellido)
+	public Alumno(String nombre,String apellido,String password)
 	{
 		this.setNombre(nombre);
 		this.setApellido(apellido);
+		this.setPassword(password);
+	}
+	
+	private void setPassword(String password) {
+	
+		this.password=password;
 		
+	}
+
+	public String getPassword()
+	{
+		
+		return this.password;
 	}
 	
 	public Alumno()

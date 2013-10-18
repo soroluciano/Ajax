@@ -1,4 +1,4 @@
-
+<%@page import="Ajax.Alumno" %>
 <%@page import="Ajax.CacheAlumnos"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -16,13 +16,24 @@ String pass=request.getParameter("pass");
 session.setAttribute("nombre", nombre); 
 session.setAttribute("pass",pass);
 
-if((CacheAlumnos.getInstance().ObtenerAlumno(nombre).getNombre())!=null)
+
+Alumno Usuario = new Alumno(); 
+
+
+if((CacheAlumnos.getInstance().ObtenerAlumno(nombre))!=null)
 {
+	Usuario=CacheAlumnos.getInstance().ObtenerAlumno(nombre);
 	
-
- response.sendRedirect("menuPrincipal.jsp"); 
-
-
+	if(Usuario.getNombre()==nombre && Usuario.getPassword() == pass)
+	{
+ 		response.sendRedirect("menuPrincipal.jsp"); 
+	}
+	else
+	{
+		
+	response.sendRedirect("login.jsp");	
+		
+	}	
 
 }
 

@@ -43,8 +43,8 @@ package Ajax;
 			
 			
 		
-			Alumno a1 = new Alumno("pepe","lopez");
-			Alumno a2= new Alumno("pancho","gimenez");
+			Alumno a1 = new Alumno("pepe","lopez","123");
+			Alumno a2= new Alumno("pancho","gimenez","abc");
 			
 			a1.setListaMaterias(listaMaterias);
 			a2.setListaMaterias(listaMaterias2);

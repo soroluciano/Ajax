@@ -51,6 +51,19 @@ function recuperarMaterias()
 	ajax.send( "" );
 }
 
+function avmRecuperarMateriasCallback()
+{
+	// Comprobamos si la peticion se ha completado (estado 4)
+	if( ajax.readyState == 4 )
+	{
+		// Comprobamos si la respuesta ha sido correcta (resultado HTTP 200)
+		if( ajax.status == 200 )
+		{
+			// Escribimos el resultado en la pagina HTML mediante DHTML
+			document.all.materias.innerHTML = "<b>"+ajax.responseText+"</b>";	
+		}
+	}
+}
 
 
 
@@ -64,10 +77,10 @@ function avmMateria()
 
 	// Almacenamos en el control al funcion que se invocara cuando la peticion
 	// cambie de estado	
-	ajax.onreadystatechange = recuperarMateriasCallback;
+	ajax.onreadystatechange = avmRecuperarMateriasCallback;
 
 	// Enviamos la peticion
-	ajax.open( "GET", "endPointAvm.jsp?codigoMateria="+document.all.codigoMateria.value+"&nombreMateria="+document.all.nombreMateria.value, true);
+	ajax.open( "GET", "endPointAvm.jsp?nombreMateria="+document.all.nombreMateria.value+"&codigoMateria="+document.all.codigoMateria.value, true);
 	ajax.send( "" );
 }
 
@@ -86,7 +99,7 @@ function avmMateria()
 <br>
 <label>Nombre Materia:</label>
 <input type="text" id="nombreMateria" name="nombreMateria" />
-<input type="button" onclick="avmMateria(1);"/>
+<input type="button" onclick="avmMateria();" value="agregar"/>
 
 
 

@@ -16,25 +16,27 @@
 
 String nombrePersona=(String)session.getAttribute("nombre");
 
-String nombreMateria=(String)request.getAttribute("nombreMateria");
-Integer codigoMateria=(Integer)request.getAttribute("codigoMateria");
+String nombreMateria=(String)request.getParameter("nombreMateria");
+String codigoMateria=request.getParameter("codigoMateria");
 
 Alumno alumno = new Alumno();
 alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona);
 
+out.write(nombreMateria);
 
+out.write(codigoMateria);
 
 		/*agregar materia nueva*/
 		
 	Materia mat = new Materia ();	
 		
 	mat.setNombre(nombreMateria);
-	mat.setCodigo(codigoMateria);
+	mat.setCodigo(Integer.parseInt(codigoMateria));
+	
+	
 	CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona).agregarMateria(nombreMateria, mat);
 		
 
-
-	
 	for(Materia materia : alumno.obtenerMaterias().values())
 	{
 		out.write("</br>");
@@ -47,6 +49,10 @@ alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona);
 		
 		
 	}
+	
+//response.sendRedirect("endPointListaMaterias.jsp");
+	
+
 	
 	
 	

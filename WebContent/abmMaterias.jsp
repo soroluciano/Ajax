@@ -54,7 +54,7 @@ function recuperarMaterias()
 
 
 
-function avmMateria(valor)
+function avmMateria()
 {
 	// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
 	if( window.XMLHttpRequest )
@@ -67,7 +67,7 @@ function avmMateria(valor)
 	ajax.onreadystatechange = recuperarMateriasCallback;
 
 	// Enviamos la peticion
-	ajax.open( "GET", "endPointAvm.jsp?tipo="+valor+"&nombreMateria="+document.all.codigoMateria.value+"&nombreMateria="+document.all.nombreMateria, true);
+	ajax.open( "GET", "endPointAvm.jsp?codigoMateria="+document.all.codigoMateria.value+"&nombreMateria="+document.all.nombreMateria.value, true);
 	ajax.send( "" );
 }
 

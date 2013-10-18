@@ -15,7 +15,7 @@
 <%
 
 String nombrePersona=(String)session.getAttribute("nombre");
-Integer tipo=(Integer)request.getAttribute("valor");
+
 String nombreMateria=(String)request.getAttribute("nombreMateria");
 Integer codigoMateria=(Integer)request.getAttribute("codigoMateria");
 
@@ -23,10 +23,7 @@ Alumno alumno = new Alumno();
 alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona);
 
 
-switch (tipo)
-	
-{
-	case 1 :
+
 		/*agregar materia nueva*/
 		
 	Materia mat = new Materia ();	
@@ -35,37 +32,29 @@ switch (tipo)
 	mat.setCodigo(codigoMateria);
 	CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona).agregarMateria(nombreMateria, mat);
 		
-		break;
-	
-	
-	case 2 :
-	/*borrar materia*/
-		break;
-		
-	
-	
-	case 3 :
-	/* editar materia existente*/
-		break;
-	
-
-	
-		
-	
-	
-}	
 
 
-
+	
 	for(Materia materia : alumno.obtenerMaterias().values())
 	{
 		out.write("</br>");
 		out.print(materia.toString());
 		
 		
-	
+		
+		out.write("<a href='eliminar.jsp'>eliminar</a>");
+		out.write("</br>");
+		
 		
 	}
+	
+	
+	
+
+
+
+
+
 	
 	
 	

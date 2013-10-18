@@ -15,7 +15,7 @@
 <%
 
 String nombre=(String)session.getAttribute("nombre");
-
+/*
 Alumno alumno = new Alumno();
 alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombre);
 
@@ -34,7 +34,7 @@ alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombre);
 		
 	}
 	
-	
+	*/
 	
 %>
 

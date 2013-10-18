@@ -13,6 +13,8 @@
 <a href="menuPrincipal.jsp">Menu principal</a>
 
 
+
+
 <%
 
 String nombre=(String)session.getAttribute("nombre");

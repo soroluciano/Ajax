@@ -13,8 +13,7 @@
 <% 
 String nombre=request.getParameter("nombre");
 String pass=request.getParameter("pass");
-session.setAttribute("nombre", nombre); 
-session.setAttribute("pass",pass);
+
 
 
 Alumno Usuario = new Alumno(); 
@@ -24,18 +23,26 @@ if((CacheAlumnos.getInstance().ObtenerAlumno(nombre))!=null)
 {
 	Usuario=CacheAlumnos.getInstance().ObtenerAlumno(nombre);
 	
-	if(Usuario.getNombre()==nombre && Usuario.getPassword() == pass)
+	if(Usuario.getNombre().equals(nombre) && Usuario.getPassword().equals(pass))
 	{
+		session.setAttribute("nombre",nombre); 
+		session.setAttribute("pass",pass);
  		response.sendRedirect("menuPrincipal.jsp"); 
 	}
 	else
 	{
 		
-	response.sendRedirect("login.jsp");	
+	response.sendRedirect("error.jsp");	
 		
 	}	
 
 }
+else
+{
+	
+response.sendRedirect("error.jsp");	
+	
+}	
 
 %>
 <a href="menuPrincipal.jsp">menu principal</a>

@@ -14,9 +14,7 @@
 <% 
 
 
-String nombrePersona=request.getParameter("nombre");
-session.setAttribute("nombre", nombrePersona);
-
+String nombrePersona=(String)session.getAttribute("nombre");
 
 
 

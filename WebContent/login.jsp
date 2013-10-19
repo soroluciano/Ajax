@@ -9,10 +9,10 @@
 
 <style type="text/css">
 <!--
-@import url("/css/style.css");
+@import url("/WebContent/css/style.css");
 -->
 </style>
-<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="WebContent/css/style.css"/>
 </head>
 <body>
 

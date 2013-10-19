@@ -22,9 +22,7 @@ String codigoMateria=request.getParameter("codigoMateria");
 Alumno alumno = new Alumno();
 alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona);
 
-out.write(nombreMateria);
 
-out.write(codigoMateria);
 
 		/*agregar materia nueva*/
 		
@@ -50,7 +48,7 @@ out.write(codigoMateria);
 		
 	}
 	
-//response.sendRedirect("endPointListaMaterias.jsp");
+
 	
 
 	

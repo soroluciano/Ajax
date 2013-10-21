@@ -1,9 +1,13 @@
 package Ajax;
 
+import java.util.HashSet;
+
 public class Materia {
 
 	private String nombre;
 	private Integer codigo;
+	
+	private HashSet<Alumno> listaAlumnos = new HashSet<Alumno>();
 	
 	public String getNombre() {
 		return nombre.toString();
@@ -25,6 +29,12 @@ public class Materia {
 		return this.getNombre()+ this.getCodigo();
 				
 	}
+	public void addAlumno(Alumno alumno)
+	{
+		
+		this.listaAlumnos.add(alumno);
+	}
+	
 	
 	
 }

@@ -22,22 +22,20 @@ Alumno alumno = new Alumno();
 alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombre);
 
 
-
+out.write("<table><tr>");
 	for(Materia materia : alumno.obtenerMaterias().values())
 	{
-		out.write("</br>");
+		
+		out.write("<td>");
 		out.print(materia.toString());
-		
-		
-		
 		out.write("<a href='eliminar.jsp'>eliminar</a>");
-		out.write("</br>");
+		out.write("</td>");
 		
 		
 	}
 	
-	i++;
-	out.print(i);
+	
+	out.write("</tr></table>");
 	
 %>
 

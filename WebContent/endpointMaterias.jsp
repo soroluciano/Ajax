@@ -1,4 +1,4 @@
-<%@page import="java.util.HashMap"%>
+<%@page import="java.util.HashSet"%>
 <%@page import="Ajax.CacheAlumnos"%>
 <%@page import="Ajax.Materia" %>
 
@@ -24,7 +24,7 @@ String nombrePersona=(String)session.getAttribute("nombre");
 
 
 
-HashMap<String,Materia> listadoMateria2=new	HashMap<String,Materia>();	
+HashSet<Materia> listadoMateria2=new HashSet<Materia>();	
 
 listadoMateria2=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona).obtenerMaterias();
 

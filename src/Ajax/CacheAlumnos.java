@@ -1,6 +1,7 @@
 package Ajax;
 
-	import java.util.HashMap;
+
+import java.util.HashSet;
 
 
 
@@ -10,9 +11,9 @@ package Ajax;
 		
 		
 		private static CacheAlumnos instancia;
-		private HashMap<String,Alumno> listaAlumnos=new HashMap<String,Alumno>();
-		private HashMap<String,Materia> listaMaterias = new HashMap<String, Materia>();
-		private HashMap<String,Materia> listaMaterias2 = new HashMap<String, Materia>();
+		private HashSet<Alumno> listaAlumnos=new HashSet<Alumno>();
+		private HashSet<Materia> listaMaterias = new HashSet<Materia>();
+		private HashSet<Materia> listaMaterias2 = new HashSet<Materia>();
 		
 		private CacheAlumnos()
 		{
@@ -34,11 +35,11 @@ package Ajax;
 			m4.setNombre("Quimica");
 			
 			
-			listaMaterias.put("educ fisica",m1);
-			listaMaterias.put("Programacion",m2);
+			listaMaterias.add(m1);
+			listaMaterias.add(m2);
 		
-			listaMaterias2.put("Redes",m3);
-			listaMaterias2.put("Quimica",m4);
+			listaMaterias2.add(m3);
+			listaMaterias2.add(m4);
 		
 			
 			
@@ -49,8 +50,8 @@ package Ajax;
 			a1.setListaMaterias(listaMaterias);
 			a2.setListaMaterias(listaMaterias2);
 			
-			listaAlumnos.put("pepe",a1);
-			listaAlumnos.put("pancho",a2);
+			listaAlumnos.add(a1);
+			listaAlumnos.add(a2);
 			
 			
 		
@@ -69,10 +70,11 @@ package Ajax;
 
 		public Alumno ObtenerAlumno(String nombre)
 		{
-			
 			Alumno a = new Alumno();
-			a=(Alumno)this.listaAlumnos.get(nombre);
+			/*
 			
+			a=(Alumno)this.listaAlumnos.
+			*/
 		
 			
 			return a; 

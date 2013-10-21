@@ -96,6 +96,14 @@ public class CacheAlumnos {
 
 	}
 
+	public HashSet<Alumno> getListaAlumnos() {
+		return listaAlumnos;
+	}
+
+	public void setListaAlumnos(HashSet<Alumno> listaAlumnos) {
+		this.listaAlumnos = listaAlumnos;
+	}
+
 
 
 

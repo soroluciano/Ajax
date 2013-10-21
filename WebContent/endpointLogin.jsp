@@ -19,9 +19,9 @@ String pass=request.getParameter("pass");
 Alumno Usuario = new Alumno(); 
 
 
-if((CacheAlumnos.getInstance().ObtenerAlumno(nombre))!=null)
+if((CacheAlumnos.getInstance().ObtenerAlumno(nombre,pass))!=null)
 {
-	Usuario=CacheAlumnos.getInstance().ObtenerAlumno(nombre);
+	Usuario=CacheAlumnos.getInstance().ObtenerAlumno(nombre,pass);
 	
 	if(Usuario.getNombre().equals(nombre) && Usuario.getPassword().equals(pass))
 	{

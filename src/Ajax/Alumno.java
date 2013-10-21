@@ -94,47 +94,7 @@ public class Alumno {
 			this.listaMaterias.add(materia);
 		}	 
 
-		/*
-		if(this.listaMaterias.get(key)!=null)
-		{
-
-			System.out.println("Codigo existente,por favor cambielo");
-
-		}
-		else
-		{
-			for(Materia mat : this.listaMaterias.values())
-			{
-				if(mat.equals(materia) )
-				{
-				 System.out.println("Materia existente,por favor cambie los valores");
-
-				}
-
-
-			}
-			for(Materia mat2 : this.listaMaterias.values())
-			{
-				if(mat2.equals(materia) )
-				{
-				 System.out.println("Materia existente,por favor cambie los valores");
-
-				}
-
-
-			}
-			this.listaMaterias.put(key, materia);
-
-
-		} 
-
-
-		 */
-
-
-
-
-
+		
 	}
 
 

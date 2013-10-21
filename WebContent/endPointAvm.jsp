@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="java.util.HashMap"%>
+
 <%@page import="Ajax.CacheAlumnos"%>
 <%@page import="Ajax.Materia" %>
 <%@page import="Ajax.Alumno" %>
@@ -14,13 +14,17 @@
 
 <%
 
+
+
 String nombrePersona=(String)session.getAttribute("nombre");
+String pass=(String)session.getAttribute("pass");
+
 
 String nombreMateria=(String)request.getParameter("nombreMateria");
 String codigoMateria=request.getParameter("codigoMateria");
 
 Alumno alumno = new Alumno();
-alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona);
+alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona,pass);
 
 
 
@@ -32,10 +36,10 @@ alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona);
 	mat.setCodigo(Integer.parseInt(codigoMateria));
 	
 	
-	CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona).agregarMateria(nombreMateria, mat);
+	CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona,pass).agregarMateria(mat);
 		
 
-	for(Materia materia : alumno.obtenerMaterias().values())
+	for(Materia materia : alumno.obtenerMaterias())
 	{
 		out.write("</br>");
 		out.print(materia.toString());

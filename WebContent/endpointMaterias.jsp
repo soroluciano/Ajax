@@ -21,12 +21,12 @@
 
 
 String nombrePersona=(String)session.getAttribute("nombre");
-
+String pass=(String)session.getAttribute("pass");
 
 
 HashSet<Materia> listadoMateria2=new HashSet<Materia>();	
 
-listadoMateria2=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona).obtenerMaterias();
+listadoMateria2=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona,pass).obtenerMaterias();
 
 
 

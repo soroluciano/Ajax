@@ -71,6 +71,8 @@ import java.util.HashSet;
 		public Alumno ObtenerAlumno(String nombre)
 		{
 			Alumno a = new Alumno();
+			
+			
 			/*
 			
 			a=(Alumno)this.listaAlumnos.

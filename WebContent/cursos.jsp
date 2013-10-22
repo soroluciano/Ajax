@@ -8,6 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" />
 <script>
 var ajax;
 
@@ -51,21 +52,25 @@ function recuperarMaterias()
 <label>Nombre Curso</label><br>
 <input type="text" id="alumno" name="alumno" >
 <label>Seleccione alumnos</label>
-<select>
+
+
+<div id="listaAlumnos" class="alert">
 <%
 
 
 for(Alumno alumno:CacheAlumnos.getInstance().getListaAlumnos())
 {
-	out.write("<option>");
+	out.write("<br>");
 	out.print(alumno.getNombre());	
-	out.write("</option>");
+	out.write("<input type='checkbox' id =''/>");
+	out.write("<br>");
+
 }
 
 %>
-</select>
+</div>
 
-<input type="button" onclick="agregarAlumno();" value="Agregar Alumno">
+<input type="button" onclick="agregarCurso();" value="Agregar Curso">
 <br>
 
 
@@ -73,7 +78,7 @@ for(Alumno alumno:CacheAlumnos.getInstance().getListaAlumnos())
 <br>
 <h1>Borrar Curso</h1>
 <input type="text" >
- <input type="button" onclick="borrarAlumno();" value="Borrar Alumno">
+ <input type="button" onclick="borrarCurso();" value="Borrar Curso">
  <br>
  
  <h1>Editar Curso</h1><br>
@@ -92,7 +97,7 @@ out.print("</option>");
 <label>Nueva fecha de curso</label>
 <input type="text" id="fechaCursoNueva" >
 <label></label> 
-<input type="button" onclick="editarAlumno" value="Editar Alumno">
+<input type="button" onclick="editarCurso" value="Editar Curso">
 
 </body>
 </html>

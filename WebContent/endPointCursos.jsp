@@ -9,8 +9,8 @@
 <body>
 
 <%
-
-
+	String nombreCurso= request.getParameter("nombreCurso");
+	
 
 %>
 

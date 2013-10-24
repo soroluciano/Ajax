@@ -95,7 +95,7 @@ public class Alumno {
 		{
 
 			this.listaMaterias.add(materia);
-			materia.addAlumno(this);
+		
 		}	 
 
 		

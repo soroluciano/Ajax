@@ -16,14 +16,24 @@
 
 String nombre = (String)session.getAttribute("nombre");
 
+if(nombre!=null)
+{
+/*crear usuarios */
 
 
+out.print("bienvenido"+nombre);
 
 
+/*borrar usuarios*/
 
+/*editar usuarios*/
 
+}
+else
+{
+response.sendRedirect("login.jsp");	
 
-
+}	
 %>
 
 

@@ -33,8 +33,8 @@ public class CacheAlumnos {
 		listaMaterias.add(m1);
 		listaMaterias.add(m2);
 
-		listaMaterias2.add(m3);
-		listaMaterias2.add(m4);
+		listaMaterias.add(m3);
+		listaMaterias.add(m4);
 
 
 
@@ -42,11 +42,6 @@ public class CacheAlumnos {
 		Alumno a1 = new Alumno("pepe","lopez","123");
 		Alumno a2= new Alumno("pancho","gimenez","abc");
 
-		a1.agregarMateria(m1);
-		a1.agregarMateria(m2);
-		
-		a2.agregarMateria(m3);
-		a2.agregarMateria(m4);
 
 		
 		

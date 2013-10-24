@@ -5,14 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" />
 </head>
 <body>
 
 <ul>
 <li><a href="abmMaterias.jsp">Materias</a></li>
 <li><a href="abmUsuarios.jsp">usuarios</a></li>
-<li><a href="cursos.jsp">Cursos</a></li>
+<li><a href="endPointCursos.jsp">Cursos</a></li>
 </ul>
 
 

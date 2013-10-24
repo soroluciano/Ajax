@@ -92,11 +92,7 @@ function avmMateria()
 
 <a href="menuPrincipal.jsp">Menu principal</a>
 
-<label>Agregar nueva materia</label><br><br>
-
-<label>Codigo Materia:</label>
-<input type="text" id="codigoMateria" name="codigoMateria"/>
-<br>
+<label>Agregar nueva materia</label><br>
 <label>Nombre Materia:</label>
 <input type="text" id="nombreMateria" name="nombreMateria" />
 <input type="button" onclick="avmMateria();" value="agregar"/>

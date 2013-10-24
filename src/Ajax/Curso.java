@@ -3,16 +3,12 @@ package Ajax;
 import java.util.HashSet;
 
 public class Curso {
+	private Integer codigo;
 
-	private String nombre;
 	private Integer año;
 	private HashSet<Alumno> listaAlumnos = new HashSet<Alumno>();
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+
+
 	public Integer getAño() {
 		return año;
 	}
@@ -23,8 +19,14 @@ public class Curso {
 		return listaAlumnos;
 	}
 	
-	public void agregarAlumnos(Alumno alumno) {
+	public void agregarAlumno(Alumno alumno) {
 		this.listaAlumnos.add(alumno);
+	}
+	public Integer getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 	
 	

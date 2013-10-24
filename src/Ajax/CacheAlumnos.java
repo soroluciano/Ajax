@@ -1,14 +1,9 @@
 package Ajax;
 
-
 import java.util.HashSet;
 
 
-
 public class CacheAlumnos {
-
-
-
 
 	private static CacheAlumnos instancia;
 	private HashSet<Alumno> listaAlumnos=new HashSet<Alumno>();
@@ -48,9 +43,14 @@ public class CacheAlumnos {
 		Alumno a1 = new Alumno("pepe","lopez","123");
 		Alumno a2= new Alumno("pancho","gimenez","abc");
 
-		a1.setListaMaterias(listaMaterias);
-		a2.setListaMaterias(listaMaterias2);
+		a1.agregarMateria(m1);
+		a1.agregarMateria(m2);
+		
+		a2.agregarMateria(m3);
+		a2.agregarMateria(m4);
 
+		
+		
 		listaAlumnos.add(a1);
 		listaAlumnos.add(a2);
 
@@ -75,7 +75,7 @@ public class CacheAlumnos {
 	}
 
 
-	public Alumno ObtenerAlumno(String nombre,String pass)
+	public Alumno ObtenerAlumno(String nombre,String pass)/*esta deberia llamarse obtener usuario*/
 	{
 
 
@@ -102,6 +102,10 @@ public class CacheAlumnos {
 
 
 	}
+	
+	
+	
+	
 
 	public HashSet<Alumno> getListaAlumnos() {
 		return listaAlumnos;

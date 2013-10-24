@@ -10,7 +10,10 @@ public class Alumno {
 	private String nombre;
 	private String apellido;
 	private String password;
-
+	private Integer legajo;
+	
+	
+	
 	private HashSet<Materia> listaMaterias;
 
 	public Alumno(String nombre,String apellido,String password)
@@ -151,6 +154,14 @@ public class Alumno {
 
 		this.listaMaterias.remove(materia);
 
+	}
+
+	public Integer getLegajo() {
+		return legajo;
+	}
+
+	public void setLegajo(Integer legajo) {
+		this.legajo = legajo;
 	}
 
 	/*faltaria el editar materia*/

@@ -58,13 +58,18 @@ function recuperarMaterias()
 <%
 
 
-for(Alumno alumno:CacheAlumnos.getInstance().getListaAlumnos())
+for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 {
-	out.write("<br>");
-	out.print(alumno.getNombre());	
-	out.write("<input type='checkbox' id =''/>");
-	out.write("<br>");
 
+		out.print(curso.getAño());
+		out.print(curso.getCodigo());
+		out.print(curso.getMateria());
+	for(Alumno alumno:curso.obtenerListaAlumnos())
+	{
+		out.print(alumno.getNombre());
+		out.print(alumno.getApellido());
+		out.print(alumno.getLegajo());
+	}
 }
 
 %>

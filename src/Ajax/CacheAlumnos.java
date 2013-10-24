@@ -9,7 +9,8 @@ public class CacheAlumnos {
 	private HashSet<Alumno> listaAlumnos=new HashSet<Alumno>();
 	private HashSet<Materia> listaMaterias = new HashSet<Materia>();
 	private HashSet<Materia> listaMaterias2 = new HashSet<Materia>();
-
+	private HashSet<Curso> listaCursos = new HashSet<Curso>();
+	
 	private CacheAlumnos()
 	{
 		Materia m1 = new Materia();
@@ -48,8 +49,27 @@ public class CacheAlumnos {
 		listaAlumnos.add(a1);
 		listaAlumnos.add(a2);
 
-
-
+		
+		Curso curso1 = new Curso();
+		
+		Curso curso2 = new Curso();
+		
+		curso1.agregarAlumno(a1);
+		curso1.agregarAlumno(a2);
+		curso1.setAño(2010);
+		curso1.setCodigo(1010);
+		curso1.setMateria(m2);
+		
+		curso2.agregarAlumno(a1);
+		curso2.agregarAlumno(a2);
+		curso2.setAño(2011);
+		curso2.setCodigo(1015);
+		curso2.setMateria(m1);
+		
+		listaCursos.add(curso1);
+		listaCursos.add(curso2);
+	
+		
 	}
 
 	public static CacheAlumnos getInstance()
@@ -101,6 +121,14 @@ public class CacheAlumnos {
 
 	public void setListaAlumnos(HashSet<Alumno> listaAlumnos) {
 		this.listaAlumnos = listaAlumnos;
+	}
+
+	public HashSet<Curso> getListaCursos() {
+		return listaCursos;
+	}
+
+	public void setListaCursos(HashSet<Curso> listaCursos) {
+		this.listaCursos = listaCursos;
 	}
 
 

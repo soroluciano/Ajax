@@ -6,6 +6,7 @@ public class Curso {
 	private Integer codigo;
 
 	private Integer año;
+	private Materia materia;
 	private HashSet<Alumno> listaAlumnos = new HashSet<Alumno>();
 
 
@@ -27,6 +28,12 @@ public class Curso {
 	}
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
+	}
+	public Materia getMateria() {
+		return materia;
+	}
+	public void setMateria(Materia materia) {
+		this.materia = materia;
 	}
 	
 	

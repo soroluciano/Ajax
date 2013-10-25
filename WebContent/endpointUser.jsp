@@ -1,7 +1,7 @@
 <%@page import="java.util.HashSet"%>
 <%@page import="Ajax.CacheAlumnos"%>
 <%@page import="Ajax.Materia" %>
-
+<%@page import="Ajax.Usuario" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,34 +20,30 @@
 <% 
 
 
-String nombrePersona=(String)session.getAttribute("nombre");
-String pass=(String)session.getAttribute("pass");
-
-
-HashSet<Materia> listadoMateria2=new HashSet<Materia>();	
-
-listadoMateria2=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona,pass).obtenerMaterias();
+String nombreUsuario=(String)request.getAttribute("nombreUsuario");
+String pass =(String)request.getAttribute("pass");
 
 
 
 
-	if(listadoMateria2!=null)
-	{
- 
-	
-	
-		for(Materia materia :listadoMateria2)
-		{
-		out.print(materia.toString());
-		out.write("</br>");	
-		}
-	}
-	
-	else
-	{
-		out.write("No existe el usuario");
-		
-	}
+Usuario us = new Usuario();
+us.setNombreUsuario(nombreUsuario);
+us.setPassword(pass);
+
+CacheAlumnos.getInstance().guardarUsuario(us);
+
+for (Usuario usuario:CacheAlumnos.getInstance().getListaUsuarios())
+{
+	out.print(usuario.getNombreUsuario());
+	out.print("<br>");
+
+
+}
+
+
+
+
+
 	
 
 	

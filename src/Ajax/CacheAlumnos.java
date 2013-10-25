@@ -8,8 +8,8 @@ public class CacheAlumnos {
 	private static CacheAlumnos instancia;
 	private HashSet<Alumno> listaAlumnos=new HashSet<Alumno>();
 	private HashSet<Materia> listaMaterias = new HashSet<Materia>();
-	private HashSet<Materia> listaMaterias2 = new HashSet<Materia>();
 	private HashSet<Curso> listaCursos = new HashSet<Curso>();
+	private HashSet<Usuario> listaUsuarios = new HashSet<Usuario>(); 
 	
 	private CacheAlumnos()
 	{
@@ -70,6 +70,20 @@ public class CacheAlumnos {
 		listaCursos.add(curso2);
 	
 		
+		/*Creando usuarios*/
+		
+		Usuario u1 = new Usuario ();
+		Usuario u2 = new Usuario();
+		Usuario u3 = new Usuario ();
+		u1.setNombreUsuario("pepe");
+		u1.setPassword("123");
+		u2.setNombreUsuario("luis");
+		u2.setPassword("123");
+		u3.setNombreUsuario("juan");
+		u3.setPassword("123");
+		
+		
+		
 	}
 
 	public static CacheAlumnos getInstance()
@@ -94,6 +108,34 @@ public class CacheAlumnos {
 			{
 
 				return alumno;
+
+			}
+			else
+			{
+
+				return null;
+				
+			}	
+		}
+
+		return null;
+
+
+
+
+	}
+	
+	public Usuario obtenerUsuario(String nombre,String pass)/*esta deberia llamarse obtener usuario*/
+	{
+
+
+
+		for(Usuario usuario :listaUsuarios)
+		{
+			if(usuario.getNombreUsuario().equals(nombre) && usuario.getPassword().equals(pass))
+			{
+
+				return usuario;
 
 			}
 			else
@@ -146,8 +188,21 @@ public class CacheAlumnos {
 	public void setListaCursos(HashSet<Curso> listaCursos) {
 		this.listaCursos = listaCursos;
 	}
-	
 
+	public HashSet<Usuario> getListaUsuarios() {
+		return listaUsuarios;
+	}
+
+	public void setListaUsuarios(HashSet<Usuario> listaUsuarios) {
+		this.listaUsuarios = listaUsuarios;
+	}
+	
+	public void guardarUsuario(Usuario usuario)
+	{
+		
+		this.listaUsuarios.add(usuario);
+		
+	}
 
 }
 

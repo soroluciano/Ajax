@@ -1,4 +1,5 @@
 <%@page import="Ajax.CacheAlumnos"%>
+<%@page import="Ajax.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -33,10 +34,10 @@ function crearUsers()
 
 	// Almacenamos en el control al funcion que se invocara cuando la peticion
 	// cambie de estado	
-	ajax.onreadystatechange = recuperarMateriasCallback;
+	ajax.onreadystatechange = crearUsersCallback;
 
 	// Enviamos la peticion
-	ajax.open( "GET", "endPointUser.jsp", true);
+	ajax.open( "GET", "endpointUser.jsp?nombreUsuario="+document.all.nombreUsuario.value+"&pass="+document.all.pass.value, true);
 	ajax.send( "" );
 }
 </script>
@@ -46,43 +47,29 @@ function crearUsers()
 
 <h1>Usuarios</h1>
 
-<%
-
-String nombre = (String)session.getAttribute("nombre");
-
-if(nombre!=null)
-{
-/*crear usuarios */
-
-
-out.print("bienvenido"+nombre);
-
-
-		
-		
-		%>
-		<label>Crear Nuevo Usuario</label>
-		<input type="text" name="nombreUsuario" id="nombreUsuario" />
-		<input type="text" name="pass" id="pass" />
-		<input type="button" value="Crear" onclick=""/>
+<br>
+		<label>Crear Nuevo Usuario</label><br>
+		<label>Ingrese Usuario</label><br>
+		<input type="text" name="nombreUsuario" id="nombreUsuario" /><br>
+		<label>Ingrese contraseña</label><br>
+		<input type="text" name="pass" id="pass" /><br>
+		<input type="button" value="Crear" onclick="crearUsers();"/><br>
 		
 		<div id="resultado"></div>
-		<%
-		
-		
+			
+		<%for(Usuario usuario:CacheAlumnos.getInstance().getListaUsuarios())
+		{
+			out.print(usuario.getNombreUsuario());
+			out.write("<br>");
 
 
-/*borrar usuarios*/
+		}
+		%>
 
-/*editar usuarios*/
 
-}
-else
-{
-response.sendRedirect("login.jsp");	
 
-}	
-%>
+
+
 
 
 </body>

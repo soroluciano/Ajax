@@ -20,8 +20,8 @@
 <% 
 
 
-String nombreUsuario=(String)request.getAttribute("nombreUsuario");
-String pass =(String)request.getAttribute("pass");
+String nombreUsuario=(String)request.getParameter("nombreUsuario");
+String pass =(String)request.getParameter("pass");
 
 
 
@@ -34,8 +34,8 @@ CacheAlumnos.getInstance().guardarUsuario(us);
 
 for (Usuario usuario:CacheAlumnos.getInstance().getListaUsuarios())
 {
-	out.print(usuario.toString());
-	out.print("<br>");
+	out.print(usuario.getNombreUsuario());
+	out.write("<br>");
 
 
 }

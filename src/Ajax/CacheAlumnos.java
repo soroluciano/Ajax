@@ -82,7 +82,9 @@ public class CacheAlumnos {
 		u3.setNombreUsuario("juan");
 		u3.setPassword("123");
 		
-		
+		listaUsuarios.add(u1);
+		listaUsuarios.add(u2);
+		listaUsuarios.add(u3);
 		
 	}
 

@@ -23,23 +23,59 @@ String pass=(String)session.getAttribute("pass");
 String nombreMateria=(String)request.getParameter("nombreMateria");
 String codigoMateria=request.getParameter("codigoMateria");
 
-Alumno alumno = new Alumno();
-alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona,pass);
+
+String  opcion= request.getParameter("opcion");
 
 
 
-		/*agregar materia nueva*/
-		
-	Materia mat = new Materia ();	
-		
-	mat.setNombre(nombreMateria);
-	mat.setCodigo(Integer.parseInt(codigoMateria));
+if(opcion=="a")
+{
 	
 	
-	CacheAlumnos.getInstance().ObtenerAlumno(nombrePersona,pass).agregarMateria(mat);
+		Materia mat = new Materia ();	
+		
+		mat.setNombre(nombreMateria);
+		mat.setCodigo(Integer.parseInt(codigoMateria));
 		
 
-	for(Materia materia : alumno.obtenerMaterias())
+		CacheAlumnos.getInstance().agregarMaterias(mat);
+		
+		
+	
+}
+else if(opcion=="b")
+{
+		Materia mat2 = new Materia ();	
+		
+		mat2.setNombre(nombreMateria);
+		mat2.setCodigo(Integer.parseInt(codigoMateria));
+		
+
+		CacheAlumnos.getInstance().borrarMateria(mat2);
+		
+}
+else 
+{
+	
+	
+	
+		Materia mat3 = new Materia ();	
+		
+		mat3.setNombre(nombreMateria);
+		mat3.setCodigo(Integer.parseInt(codigoMateria));
+		
+
+		CacheAlumnos.getInstance().borrarMateria(mat3);
+		
+			
+	
+}
+
+
+
+		
+
+	for(Materia materia : CacheAlumnos.getInstance().getListaMaterias())
 	{
 		out.write("</br>");
 		out.print(materia.toString());

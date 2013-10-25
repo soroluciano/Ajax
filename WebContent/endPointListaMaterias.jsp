@@ -14,19 +14,10 @@
 
 <%
 
-Integer i = 0;
-
-
-
-
-String nombre=(String)session.getAttribute("nombre");
-String pass=(String)session.getAttribute("pass");
-Alumno alumno = new Alumno();
-alumno=CacheAlumnos.getInstance().ObtenerAlumno(nombre,pass);
 
 
 out.write("<table><tr>");
-	for(Materia materia : alumno.obtenerMaterias())
+	for(Materia materia : CacheAlumnos.getInstance().getListaMaterias())
 	{
 		
 		out.write("<td>");

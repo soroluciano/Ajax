@@ -115,10 +115,26 @@ public class CacheAlumnos {
 	
 	
 
-	public HashSet<Alumno> getListaAlumnos() {
-		return listaAlumnos;
+	public HashSet<Materia> getListaMaterias() {
+		return listaMaterias;
 	}
 
+	public void agregarMaterias(Materia materia) {
+		this.listaMaterias.add(materia);
+	}
+
+	public HashSet<Materia> getListaAlumnos() {
+		return this.listaMaterias;
+	}
+
+	public void borrarMateria(Materia materia)
+	{
+		this.listaMaterias.remove(materia);
+		
+	}
+
+	
+	
 	public void setListaAlumnos(HashSet<Alumno> listaAlumnos) {
 		this.listaAlumnos = listaAlumnos;
 	}
@@ -130,8 +146,7 @@ public class CacheAlumnos {
 	public void setListaCursos(HashSet<Curso> listaCursos) {
 		this.listaCursos = listaCursos;
 	}
-
-
+	
 
 
 }

@@ -11,7 +11,7 @@
 <ul>
 <li><a href="abmMaterias.jsp">Materias</a></li>
 <li><a href="abmUsuarios.jsp">usuarios</a></li>
-<li><a href="endPointCursos.jsp">Cursos</a></li>
+<li><a href="abmCursos.jsp">Cursos</a></li>
 </ul>
 
 

@@ -19,6 +19,13 @@ public class Usuario {
 		this.password = password;
 	}
 	
+	@Override
+	public String toString()
+	{
+		
+		return this.getNombreUsuario()+ this.getPassword();
+				
+	}
 	
 
 }

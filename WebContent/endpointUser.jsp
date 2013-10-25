@@ -34,7 +34,7 @@ CacheAlumnos.getInstance().guardarUsuario(us);
 
 for (Usuario usuario:CacheAlumnos.getInstance().getListaUsuarios())
 {
-	out.print(usuario.getNombreUsuario());
+	out.print(usuario.toString());
 	out.print("<br>");
 
 

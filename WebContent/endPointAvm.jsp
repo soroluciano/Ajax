@@ -28,10 +28,7 @@ String  opcion= request.getParameter("opcion");
 
 
 
-if(opcion=="a")
-{
-	
-	
+
 		Materia mat = new Materia ();	
 		
 		mat.setNombre(nombreMateria);
@@ -42,36 +39,6 @@ if(opcion=="a")
 		
 		
 	
-}
-else if(opcion=="b")
-{
-		Materia mat2 = new Materia ();	
-		
-		mat2.setNombre(nombreMateria);
-		mat2.setCodigo(Integer.parseInt(codigoMateria));
-		
-
-		CacheAlumnos.getInstance().borrarMateria(mat2);
-		
-}
-else 
-{
-	
-	
-	
-		Materia mat3 = new Materia ();	
-		
-		mat3.setNombre(nombreMateria);
-		mat3.setCodigo(Integer.parseInt(codigoMateria));
-		
-
-		CacheAlumnos.getInstance().borrarMateria(mat3);
-		
-			
-	
-}
-
-
 
 		
 

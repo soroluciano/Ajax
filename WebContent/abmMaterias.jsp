@@ -67,7 +67,7 @@ function avmRecuperarMateriasCallback()
 
 
 
-function avmMateria()
+function avmMateria(valor)
 {
 	// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
 	if( window.XMLHttpRequest )
@@ -80,7 +80,8 @@ function avmMateria()
 	ajax.onreadystatechange = avmRecuperarMateriasCallback;
 
 	// Enviamos la peticion
-	ajax.open( "GET", "endPointAvm.jsp?nombreMateria="+document.all.nombreMateria.value+"&codigoMateria="+document.all.codigoMateria.value, true);
+	ajax.open( "GET", "endPointAvm.jsp?nombreMateria="+document.all.nombreMateria.value+"&codigoMateria="+document.all.codigoMateria.value+
+			"&opcion="+valor, true);
 	ajax.send( "" );
 }
 
@@ -93,9 +94,11 @@ function avmMateria()
 <a href="menuPrincipal.jsp">Menu principal</a>
 
 <label>Agregar nueva materia</label><br>
+<label>Codigo Materia:</label>
+<input type="text" id="codigoMateria" name="codigoMateria" />
 <label>Nombre Materia:</label>
 <input type="text" id="nombreMateria" name="nombreMateria" />
-<input type="button" onclick="avmMateria();" value="agregar"/>
+<input type="button" onclick="avmMateria('a');" value="agregar"/>
 
 
 

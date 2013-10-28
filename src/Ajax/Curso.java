@@ -4,7 +4,6 @@ import java.util.HashSet;
 
 public class Curso {
 	private Integer codigo;
-
 	private Integer año;
 	private Materia materia;
 	private HashSet<Alumno> listaAlumnos = new HashSet<Alumno>();

@@ -1,5 +1,6 @@
 package Ajax;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 
@@ -205,6 +206,34 @@ public class CacheAlumnos {
 		this.listaUsuarios.add(usuario);
 		
 	}
+	
+	public HashSet<Alumno> obtenerAlumnosDelCurso(Integer codigo)
+	{
+		for(Curso curso : this.listaCursos)
+		{
+			if(curso.getCodigo().equals(codigo))
+			{
+				
+				return curso.obtenerListaAlumnos();
+			}
+		}
+		return null;
+	}
+	
+	public  Curso obtenerCursoConSuCodigo(Integer codigo)
+	{
+		for(Curso curso : CacheAlumnos.getInstance().listaCursos)
+		{
+			if(curso.getCodigo().equals(codigo))
+			{
+				
+				return curso;
+			}
+		}
+		return null;
+	}
+	
+	
 
 }
 

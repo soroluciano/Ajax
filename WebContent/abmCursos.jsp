@@ -43,6 +43,10 @@ function recuperarMaterias()
 	ajax.send( "" );
 }
 
+
+
+
+
 </script>
 </head>
 <body>
@@ -54,17 +58,20 @@ function recuperarMaterias()
 <label>Seleccione alumnos</label>
 <input type="button" onclick="agregarCurso();" value="Agregar Curso">
 
-<div id="listaAlumnos" class="alert">
+<div id="listaAlumnos">
 <%
 
 out.write("<h1>Cursos</h1>");
 out.write("<div class='table-responsive'><table class='table'>");
 
 
-out.write("<tr>");
+out.write("<tr class='warning'>");
 out.write("<td>Codigo</td>");
 out.write("<td>Materia</td>");
 out.write("<td>Año</td>");
+out.write("<td>Editar</td>");
+out.write("<td>Borrar</td>");
+out.write("<td>Ver detalle</td>");
 out.write("</tr>");
 for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 {		
@@ -84,7 +91,19 @@ for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 		out.print(curso.getAño());
 		out.write("</td>");
 		
+		out.write("<td>");		
+		out.print("<input type='button' onclick='' value='Editar'>");
+		out.write("</td>");
 		
+		out.write("<td>");		
+		out.print("<input type='button' onclick='' value='Borrar'>");
+		out.write("</td>");
+		
+		out.write("<td>");		
+		out.print("<a href='detalleCurso?codigo="+curso.getCodigo()+">Ver detalle</a>");
+		
+		
+		out.write("</td>");
 		
 
 
@@ -101,29 +120,8 @@ out.write("</table></div>");
 
 /*parte vieja*/
 
-for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
-{
-		out.write("Curso:");
-		out.print(curso.getCodigo());
 
-		out.write("<br>");
-		out.print(curso.getAño());
-
-		
-		out.write("<br>");	
-		out.print(curso.getMateria());
-		out.write("<br>");
-		for(Alumno alumno:curso.obtenerListaAlumnos())
-	{
-		out.write("<br>");
-		out.print(alumno.getNombre());
-		out.write("<br>");
-		out.print(alumno.getApellido());
-		out.write("<br>");
-		out.print(alumno.getLegajo());
-		out.write("<br>");
-	}
-}
+	
 
 %>
 </div>

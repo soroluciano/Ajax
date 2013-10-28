@@ -52,30 +52,84 @@ function recuperarMaterias()
 <label>Nombre Curso</label><br>
 <input type="text" id="alumno" name="alumno" >
 <label>Seleccione alumnos</label>
-
+<input type="button" onclick="agregarCurso();" value="Agregar Curso">
 
 <div id="listaAlumnos" class="alert">
 <%
 
+out.write("<h1>Cursos</h1>");
+out.write("<div class='table-responsive'><table class='table'>");
+
+
+out.write("<tr>");
+out.write("<td>Codigo</td>");
+out.write("<td>Materia</td>");
+out.write("<td>Año</td>");
+out.write("</tr>");
+for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
+{		
+	
+		
+
+		out.write("<tr>");
+		out.write("<td>");
+		out.print(curso.getCodigo());
+		out.write("</td>");
+				
+		out.write("<td>");	
+		out.print(curso.getMateria());
+		out.write("</td>");
+		
+		out.write("<td>");		
+		out.print(curso.getAño());
+		out.write("</td>");
+		
+		
+		
+
+
+		out.write("</tr>");
+		
+}
+
+
+out.write("</table></div>");
+
+
+
+
+
+/*parte vieja*/
 
 for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 {
-
-		out.print(curso.getAño());
+		out.write("Curso:");
 		out.print(curso.getCodigo());
+
+		out.write("<br>");
+		out.print(curso.getAño());
+
+		
+		out.write("<br>");	
 		out.print(curso.getMateria());
-	for(Alumno alumno:curso.obtenerListaAlumnos())
+		out.write("<br>");
+		for(Alumno alumno:curso.obtenerListaAlumnos())
 	{
+		out.write("<br>");
 		out.print(alumno.getNombre());
+		out.write("<br>");
 		out.print(alumno.getApellido());
+		out.write("<br>");
 		out.print(alumno.getLegajo());
+		out.write("<br>");
 	}
 }
 
 %>
 </div>
 
-<input type="button" onclick="agregarCurso();" value="Agregar Curso">
+<!-- 
+
 <br>
 
 
@@ -88,13 +142,14 @@ for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
  
  <h1>Editar Curso</h1><br>
  <select>
-<%
+<%/*
 out.print("<option>");
 out.write("valor 1");
 
 out.print("</option>");
-%>
 
+*/%>
+ 
 
 </select><br>
 <label>Nuevo Nombre de curso</label>
@@ -103,6 +158,6 @@ out.print("</option>");
 <input type="text" id="fechaCursoNueva" >
 <label></label> 
 <input type="button" onclick="editarCurso" value="Editar Curso">
-
+-->
 </body>
 </html>

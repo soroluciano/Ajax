@@ -28,6 +28,7 @@ if((CacheAlumnos.getInstance().ObtenerAlumno(nombre,pass))!=null)
 		session.setAttribute("nombre",nombre); 
 		session.setAttribute("pass",pass);
  		response.sendRedirect("menuPrincipal.jsp"); 
+ 		
 	}
 	else
 	{

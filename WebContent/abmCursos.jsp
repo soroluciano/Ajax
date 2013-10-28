@@ -44,6 +44,36 @@ function recuperarMaterias()
 }
 
 
+function abmCursoCallback()
+{
+	// Comprobamos si la peticion se ha completado (estado 4)
+	if( ajax.readyState == 4 )
+	{
+		// Comprobamos si la respuesta ha sido correcta (resultado HTTP 200)
+		if( ajax.status == 200 )
+		{
+			// Escribimos el resultado en la pagina HTML mediante DHTML
+			document.all.salida.innerHTML = "<b>"+ajax.responseText+"</b>";	
+		}
+	}
+}
+
+function abmCurso(opcion,codigo)
+{
+	// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
+	if( window.XMLHttpRequest )
+		ajax = new XMLHttpRequest(); // No Internet Explorer
+	else
+		ajax = new ActiveXObject("Microsoft.XMLHTTP"); // Internet Explorer
+
+	// Almacenamos en el control al funcion que se invocara cuando la peticion
+	// cambie de estado	
+	ajax.onreadystatechange = recuperarMateriasCallback;
+
+	// Enviamos la peticion
+	ajax.open( "GET", "endpointCursos.jsp?opcion="+opcion+"&codigo="+codigo, true);
+	ajax.send( "" );
+}
 
 
 
@@ -92,11 +122,11 @@ for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 		out.write("</td>");
 		
 		out.write("<td>");		
-		out.print("<input type='button' onclick='' value='Editar'>");
+		out.print("<input type='button' onclick='abmCurso('editar',"+curso.getCodigo()+")'/>");
 		out.write("</td>");
 		
 		out.write("<td>");		
-		out.print("<input type='button' onclick='' value='Borrar'>");
+		out.print("<input type='button' onclick='abmCurso('borrar',"+curso.getCodigo()+")'/>");
 		out.write("</td>");
 		
 		out.write("<td>");		

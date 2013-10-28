@@ -1,4 +1,4 @@
-<%@page import="sun.org.mozilla.javascript.internal.ast.TryStatement"%>
+
 <%@page import="Ajax.CacheAlumnos"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -16,10 +16,17 @@
 <%
 
 
-String codigoCurso =(String)request.getParameter("curso");
+String codigoCurso =(String)request.getParameter("codigo");
 
 
-Integer codigo=Integer.parseInt(codigoCurso);
+int cod=Integer.parseInt(codigoCurso);
+
+Integer codigo= (Integer)cod;
+
+
+
+
+out.print(codigo);
 
 
 HashSet<Alumno> listaAlumnos = new HashSet<Alumno>();
@@ -73,17 +80,34 @@ out.write("<h1>Alumnos</h1>");
 out.write("<div class='table-responsive'><table class='table'>");
 
 
-out.write("<tr class=''>");
-out.write("<td>Codigo</td>");
-out.write("<td>Materia</td>");
-out.write("<td>Año</td>");
+out.write("<tr class='succes'>");
+out.write("<td>Legajo</td>");
+out.write("<td>Nombre</td>");
+out.write("<td>Apellido</td>");
 
 out.write("</tr>");
 		
+
+for(Alumno alumno : curso.obtenerListaAlumnos())
+{
+out.write("<tr>");	
+out.write("<td>");		
+out.print(alumno.getLegajo());
+out.write("</td>");
 	
+out.write("<td>");
+out.print(alumno.getNombre());
+out.write("</td>");
 		
+out.write("<td>");	
+out.print(alumno.getApellido());
+out.write("</td>");
 
 
+
+out.write("</tr>");	
+		
+}
 
 
 

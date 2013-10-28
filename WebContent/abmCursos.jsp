@@ -100,7 +100,9 @@ for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 		out.write("</td>");
 		
 		out.write("<td>");		
-		out.print("<a href='detalleCurso?codigo="+curso.getCodigo()+">Ver detalle</a>");
+		out.write("<a href='detalleCurso.jsp?codigo=");
+		out.print(curso.getCodigo());
+		out.write("'>Ver detalle</a>");
 		
 		
 		out.write("</td>");

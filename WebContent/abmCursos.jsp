@@ -124,14 +124,14 @@ for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 		out.write("<td>");		
 		
 	
-		out.print("<input type='button' name='modbor' class='editar'/>");
+		out.print("<input type='radio' name='modbor' class='editar'/>");
 		
 		out.write("</td>");
 		
 		out.write("<td>");	
 		
 		
-		out.print("<input type='button' name='modbor' class='borrar'/>");
+		out.print("<input type='radio' name='modbor' class='borrar'/>");
 		
 		out.write("</td>");
 		

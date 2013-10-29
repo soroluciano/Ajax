@@ -13,13 +13,13 @@
 <body>
 
 <%
-String codPar= request.getParameter("codigo");
+//String codPar= request.getParameter("codigo");
 String opcion= request.getParameter("opcion");
 
-int codInt= Integer.parseInt(codPar);
-Integer codigo = (Integer)codInt;
+//int codInt= Integer.parseInt(codPar);
+//Integer codigo = (Integer)codInt;
 
-out.print(codigo);
+//out.print(codigo);
 out.print(opcion);
 
 /*

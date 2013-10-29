@@ -53,7 +53,7 @@ function abmCursoCallback()
 		if( ajax.status == 200 )
 		{
 			// Escribimos el resultado en la pagina HTML mediante DHTML
-			document.all.salida.innerHTML = "<b>"+ajax.responseText+"</b>";	
+			document.all.listaAlumnos.innerHTML = "<b>"+ajax.responseText+"</b>";	
 		}
 	}
 }
@@ -134,7 +134,7 @@ for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 		
 		out.write("<td>");		
 		
-		out.write("<input type='button'  value='Editar' onclick='editBorr(1,");
+		out.write("<input type='button'  value='Editar' onclick='abmCurso(1,");
 		out.print(curso.getCodigo());
 	
 		out.write(");'/>");
@@ -144,7 +144,7 @@ for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 		out.write("<td>");	
 		
 		
-		out.write("<input type='button'  value='Borrar' onclick='editBorr(2,");
+		out.write("<input type='button'  value='Borrar' onclick='abmCurso(2,");
 		out.print(curso.getCodigo());
 	
 		out.write(");'/>");

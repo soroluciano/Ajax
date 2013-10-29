@@ -14,21 +14,22 @@
 
 <%
 //String codPar= request.getParameter("codigo");
-String opcion= request.getParameter("opcion");
-
+Integer opcion=Integer.valueOf(request.getParameter("opcion"));
+Integer codigo=Integer.valueOf(request.getParameter("codigo"));
 //int codInt= Integer.parseInt(codPar);
 //Integer codigo = (Integer)codInt;
 
 //out.print(codigo);
-out.print(opcion);
+//out.print(opcion);
+//out.print(codigo);
 
-/*
-if(opcion=="editar")
+
+if(opcion==1)
 {
 	
 out.print("editar");
 }	
-else if (opcion=="borrar")
+else if (opcion==2)
 {
 	Curso curso = new Curso();
 	curso=CacheAlumnos.getInstance().obtenerCursoConSuCodigo(codigo);
@@ -55,39 +56,52 @@ else if (opcion=="borrar")
 	{		
 		
 			
+		out.write("<tr>");
+		out.write("<td>");
+		out.print(curso.getCodigo());
+		out.write("</td>");
+				
+		out.write("<td>");	
+		out.print(curso.getMateria());
+		out.write("</td>");
+		
+		out.write("<td>");		
+		out.print(curso.getAño());
+		out.write("</td>");
+		
+		out.write("<td>");		
+		
+		out.write("<input type='button'  value='Editar' onclick='abmCurso(1,");
+		out.print(curso.getCodigo());
+	
+		out.write(");'/>");
+	
+		out.write("</td>");
+		
+		out.write("<td>");	
+		
+		
+		out.write("<input type='button'  value='Borrar' onclick='abmCurso(2,");
+		out.print(curso.getCodigo());
+	
+		out.write(");'/>");
+		
+		
 
-			out.write("<tr>");
-			out.write("<td>");
-			out.print(cur.getCodigo());
-			out.write("</td>");
-					
-			out.write("<td>");	
-			out.print(curso.getMateria());
-			out.write("</td>");
-			
-			out.write("<td>");		
-			out.print(curso.getAño());
-			out.write("</td>");
-			
-			out.write("<td>");		
-			out.print("<input type='button' onclick='abmCurso('editar',"+cur.getCodigo()+")'/>");
-			out.write("</td>");
-			
-			out.write("<td>");		
-			out.print("<input type='button' onclick='abmCurso('borrar',"+cur.getCodigo()+")'/>");
-			out.write("</td>");
-			
-			out.write("<td>");		
-			out.write("<a href='detalleCurso.jsp?codigo=");
-			out.print(curso.getCodigo());
-			out.write("'>Ver detalle</a>");
-			
-			
-			out.write("</td>");
-			
+		
+		out.write("</td>");
+		
+		out.write("<td>");		
+		out.write("<a href='detalleCurso.jsp?codigo=");
+		out.print(curso.getCodigo());
+		out.write("'>Ver detalle</a>");
+		
+		
+		out.write("</td>");
+		
 
 
-			out.write("</tr>");
+		out.write("</tr>");
 			
 	}
 
@@ -97,7 +111,7 @@ else if (opcion=="borrar")
 
 
 }	
-	*/
+	
 
 %>
 

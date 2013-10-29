@@ -123,14 +123,15 @@ for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 		
 		out.write("<td>");		
 		
-		String editar = "editar";
-		out.print("<input type='button' value='Editar' onclick='abmCurso("+editar+")'/>");
+	
+		out.print("<input type='button' name='modbor' class='editar'/>");
+		
 		out.write("</td>");
 		
 		out.write("<td>");	
 		
-		String borrar= "borrar";
-		out.print("<input type='button' value='Borrar' onclick='abmCurso("+borrar+","+curso.getCodigo()+")'/>");
+		
+		out.print("<input type='button' name='modbor' class='borrar'/>");
 		
 		out.write("</td>");
 		

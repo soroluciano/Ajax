@@ -71,9 +71,20 @@ function abmCurso(opcion,codigo)
 	ajax.onreadystatechange = abmCursoCallback;
 
 	// Enviamos la peticion
-	ajax.open( "GET", "endPointCursos.jsp?opcion="+opcion, true);
+	ajax.open( "GET", "endPointCursos.jsp?opcion="+opcion+"&codigo="+codigo, true);
 	ajax.send( "" );
 }
+
+function editBorr(opcion,algo)
+{
+	
+	//var partes=valor.split("/");
+	
+	
+	document.getElementById("salida").innerHTML=opcion+"<p>"+algo+"</p>";
+
+}
+
 
 
 
@@ -123,15 +134,23 @@ for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 		
 		out.write("<td>");		
 		
+		out.write("<input type='button'  value='Editar' onclick='editBorr(1,");
+		out.print(curso.getCodigo());
 	
-		out.print("<input type='radio' name='modbor' class='editar'/>");
-		
+		out.write(");'/>");
+	
 		out.write("</td>");
 		
 		out.write("<td>");	
 		
 		
-		out.print("<input type='radio' name='modbor' class='borrar'/>");
+		out.write("<input type='button'  value='Borrar' onclick='editBorr(2,");
+		out.print(curso.getCodigo());
+	
+		out.write(");'/>");
+		
+		
+
 		
 		out.write("</td>");
 		

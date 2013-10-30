@@ -21,7 +21,7 @@ function abmAlumnoCallback()
 	}
 }
 
-function abmAlumno(opcion)
+function abmAlumno()
 {
 	// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
 	if( window.XMLHttpRequest )
@@ -34,8 +34,7 @@ function abmAlumno(opcion)
 	ajax.onreadystatechange = abmAlumnoCallback;
 
 	// Enviamos la peticion
-	ajax.open( "GET", "endpointMaterias.jsp?nombre="+document.all.nombre.value+"&apellido="+document.all.apellido.value+"&legajo="+document.all.legajo.value
-			+"&opcion="+opcion, true);
+	ajax.open( "GET", "endPointAlumno.jsp?nombre="+document.all.nombreAlumno.value+"&apellido="+document.all.apellido.value+"&legajo="+document.all.legajo.value, true);
 	ajax.send( "" );
 }
 </script>
@@ -51,16 +50,18 @@ function abmAlumno(opcion)
 		<label>Apellido</label><br>
 		<input type="text" name="apellido" id="apellido" /><br>
 		<input type="text" name="legajo" id="legajo" /><br>		
-		<input type="button" value="Crear" onclick="abmAlumno(1);"/><br>		
+		<input type="button" value="Crear" onclick="abmAlumno();"/><br>		
 		</div>
-	
+		<br>
 		<div id="resultado">
 		<%
 		
 		for(Alumno alumno:CacheAlumnos.getInstance().getListaAlumnos())
 		{
 			out.print(alumno.getNombre());
+			out.print("<br>");
 			out.print(alumno.getApellido());
+			out.print("<br>");
 			out.print(alumno.getLegajo());
 			
 			

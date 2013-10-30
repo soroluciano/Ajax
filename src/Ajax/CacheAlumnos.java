@@ -239,7 +239,12 @@ public class CacheAlumnos {
 
 
 	}
+	public void crearAlumno(Alumno alumno)
+	{
+		this.listaAlumnos.add(alumno);
 
+
+	}
 
 }
 

@@ -16,6 +16,10 @@
 //String codPar= request.getParameter("codigo");
 Integer opcion=Integer.valueOf(request.getParameter("opcion"));
 Integer codigo=Integer.valueOf(request.getParameter("codigo"));
+Integer codigoCurso=Integer.valueOf(request.getParameter("codigoCurso"));
+String nombreCurso=request.getParameter("nombreCurso");
+Integer anio=Integer.valueOf(request.getParameter("anio"));
+
 //int codInt= Integer.parseInt(codPar);
 //Integer codigo = (Integer)codInt;
 
@@ -24,93 +28,125 @@ Integer codigo=Integer.valueOf(request.getParameter("codigo"));
 //out.print(codigo);
 
 
-if(opcion==1)
+switch(opcion)
 {
-	
-out.print("editar");
-}	
-else if (opcion==2)
-{
-	Curso curso = new Curso();
-	curso=CacheAlumnos.getInstance().obtenerCursoConSuCodigo(codigo);
-	HashSet<Curso> listaCursos = new HashSet<Curso>();
-	listaCursos=CacheAlumnos.getInstance().getListaCursos();
-	listaCursos.remove(curso);
-	
-	
-	
-	
-	out.write("<h1>Cursos</h1>");
-	out.write("<div class='table-responsive'><table class='table'>");
-
-
-	out.write("<tr class='warning'>");
-	out.write("<td>Codigo</td>");
-	out.write("<td>Materia</td>");
-	out.write("<td>Año</td>");
-	out.write("<td>Editar</td>");
-	out.write("<td>Borrar</td>");
-	out.write("<td>Ver detalle</td>");
-	out.write("</tr>");
-	for(Curso cur:listaCursos)
-	{		
-		
-			
-		out.write("<tr>");
-		out.write("<td>");
-		out.print(cur.getCodigo());
-		out.write("</td>");
-				
-		out.write("<td>");	
-		out.print(cur.getMateria());
-		out.write("</td>");
-		
-		out.write("<td>");		
-		out.print(cur.getAño());
-		out.write("</td>");
-		
-		out.write("<td>");		
-		
-		out.write("<input type='button'  value='Editar' onclick='abmCurso(1,");
-		out.print(cur.getCodigo());
-	
-		out.write(");'/>");
-	
-		out.write("</td>");
-		
-		out.write("<td>");	
-		
-		
-		out.write("<input type='button'  value='Borrar' onclick='abmCurso(2,");
-		out.print(cur.getCodigo());
-	
-		out.write(");'/>");
-		
-		
-
-		
-		out.write("</td>");
-		
-		out.write("<td>");		
-		out.write("<a href='detalleCurso.jsp?codigo=");
-		out.print(cur.getCodigo());
-		out.write("'>Ver detalle</a>");
-		
-		
-		out.write("</td>");
-		
-
-
-		out.write("</tr>");
-			
+	case 1:
+	{
+		out.print("editar");
 	}
+	case 2:
+	{
+		Curso curso = new Curso();
+		curso=CacheAlumnos.getInstance().obtenerCursoConSuCodigo(codigo);
+		HashSet<Curso> listaCursos = new HashSet<Curso>();
+		listaCursos=CacheAlumnos.getInstance().getListaCursos();
+		listaCursos.remove(curso);
+		
+		
+		
+		
+		out.write("<h1>Cursos</h1>");
+		out.write("<div class='table-responsive'><table class='table'>");
 
 
-	out.write("</table></div>");
+		out.write("<tr class='warning'>");
+		out.write("<td>Codigo</td>");
+		out.write("<td>Materia</td>");
+		out.write("<td>Año</td>");
+		out.write("<td>Editar</td>");
+		out.write("<td>Borrar</td>");
+		out.write("<td>Ver detalle</td>");
+		out.write("</tr>");
+		for(Curso cur:listaCursos)
+		{		
+			
+				
+			out.write("<tr>");
+			out.write("<td>");
+			out.print(cur.getCodigo());
+			out.write("</td>");
+					
+			out.write("<td>");	
+			out.print(cur.getMateria());
+			out.write("</td>");
+			
+			out.write("<td>");		
+			out.print(cur.getAño());
+			out.write("</td>");
+			
+			out.write("<td>");		
+			
+			out.write("<input type='button'  value='Editar' onclick='abmCurso(1,");
+			out.print(cur.getCodigo());
+		
+			out.write(");'/>");
+		
+			out.write("</td>");
+			
+			out.write("<td>");	
+			
+			
+			out.write("<input type='button'  value='Borrar' onclick='abmCurso(2,");
+			out.print(cur.getCodigo());
+		
+			out.write(");'/>");
+			
+			
+
+			
+			out.write("</td>");
+			
+			out.write("<td>");		
+			out.write("<a href='detalleCurso.jsp?codigo=");
+			out.print(cur.getCodigo());
+			out.write("'>Ver detalle</a>");
+			
+			
+			out.write("</td>");
+			
+
+
+			out.write("</tr>");
+	}
+		
+		out.write("</table></div>");
+		break;
+		}
+	
+	case 3:
+	{
+		/*crear cursos*/
+		/*es decir guardar materia y atributos*/
+		
+	for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
+	{
+		
+		if(curso.getAño().equals(anio)&&curso.getCodigo().equals(codigoCurso))
+		{
+			
+			break;
+			
+		}
+		else
+		{
+			
+			CacheAlumnos.getInstance().crearCurso(curso);
+		}
+	
+	}
+		
+	break;
+	}	
+
+}
 
 
 
-}	
+	
+
+
+
+
 	
 
 %>

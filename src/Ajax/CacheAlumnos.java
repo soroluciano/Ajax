@@ -233,7 +233,12 @@ public class CacheAlumnos {
 		}
 		return null;
 	}
-	
+	public void crearCurso(Curso curso)
+	{
+		this.listaCursos.add(curso);
+		
+		
+	}
 	
 
 }

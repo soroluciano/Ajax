@@ -1,8 +1,8 @@
 <%@page import="Ajax.CacheAlumnos"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="Ajax.Curso" %>    
-<%@ page import="Ajax.Alumno" %>      
+<%@ page import="Ajax.Curso"%>    
+<%@ page import="Ajax.Alumno"%>      
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -61,6 +61,10 @@ function abmCursoCallback()
 
 function abmCurso(opcion,codigo)
 {
+	var codigoCurso=document.getElementById("codigoCurso").value;	
+	var nombreCurso=document.getElementById("nombreCurso").value;
+	var anio=document.getElementById("anio").value;
+	
 	// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
 	if( window.XMLHttpRequest )
 		ajax = new XMLHttpRequest(); // No Internet Explorer
@@ -72,7 +76,7 @@ function abmCurso(opcion,codigo)
 	ajax.onreadystatechange = abmCursoCallback;
 
 	// Enviamos la peticion
-	ajax.open( "GET", "endPointCursos.jsp?opcion="+opcion+"&codigo="+codigo, true);
+	ajax.open( "GET", "endPointCursos.jsp?opcion="+opcion+"&codigo="+codigo+"&codigoCurso="+codigoCurso+"&nombreCurso="+nombreCurso+"&anio="+anio, true);
 	ajax.send( "" );
 }
 
@@ -85,33 +89,9 @@ function editBorr(opcion,algo)
 	document.getElementById("salida").innerHTML=opcion+"<p>"+algo+"</p>";
 
 }
-function agregarCurso()
-{
-var codigoCurso=document.getElementById("codigoCurso").value;	
-var nombreCurso=document.getElementById("nombreCurso").value;
-var anio=document.getElementById("anio").value;
-
-document.getElementByClass("alumnos").checked;
 
 
-document.getElementById("nuevoCurso").innerHTML="<h3>Seleccione lista Alumnos</h3><br><div>";
 
-
-document.getElementById("nuevoCurso2").innerHTML="<input type='hidden' id='codigo' value='"+codigoCurso+"'><input type='hidden' id='nCurso' value='"+nombreCurso+"'><input type='hidden' id='anio' value='"+anio+"'>";
-
-
-}
-
-function checkAll(valor)
-{
-	for(i=0;i<valor.length;i++)
-	{
-			
-		
-		
-	}
-	
-	}
 
 
 
@@ -131,20 +111,8 @@ function checkAll(valor)
 <input type="text" id="nombreCurso" name="nombreCurso"/>
 <label>Año</label><br>
 <input type="text" id="anio" name="anio"/>
-<label>Seleccione alumnos</label>
-<%
-			out.print("<form>");
-			for(Alumno alumno:CacheAlumnos.getInstance().getListaAlumnos())
-			{
-				out.print("<label>"+alumno.getNombre()+" "+alumno.getApellido()+"</label>");
-				out.print("<input type='checkbox' class='alumnos' value="+alumno.getLegajo()+">");
-				out.print("<br>");
-			}
-			out.print("</form>");		
-			
-	
-		%>
-<input type="button" onclick="agregarCurso();" value="Agregar Curso">
+
+<input type="button" onclick="abmCurso(3,'null');" value="Agregar Curso">
 </div>
 	
 		<div id="nuevoCurso">
@@ -173,12 +141,8 @@ function checkAll(valor)
 
 out.write("<h1>Cursos</h1>");
 out.write("<div class='table-responsive'><table class='table'>");
-
-
 out.write("<tr class='warning'>");
-out.write("<td>Codigo</td>");
 out.write("<td>Materia</td>");
-out.write("<td>Año</td>");
 out.write("<td>Editar</td>");
 out.write("<td>Borrar</td>");
 out.write("<td>Ver detalle</td>");
@@ -189,27 +153,20 @@ for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 		
 
 		out.write("<tr>");
-		out.write("<td>");
-		out.print(curso.getCodigo());
-		out.write("</td>");
+		
 				
 		out.write("<td>");	
 		out.print(curso.getMateria());
 		out.write("</td>");
 		
-		out.write("<td>");		
-		out.print(curso.getAño());
-		out.write("</td>");
 		
 		out.write("<td>");		
 		
 		out.write("<input type='button'  value='Editar' onclick='abmCurso(1,");
 		out.print(curso.getCodigo());
 	
-		out.write(");'/>");
-	
-		out.write("</td>");
-		
+		out.write(");'/>");	
+		out.write("</td>");		
 		out.write("<td>");	
 		
 		
@@ -218,9 +175,7 @@ for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 	
 		out.write(");'/>");
 		
-		
-
-		
+	
 		out.write("</td>");
 		
 		out.write("<td>");		
@@ -257,36 +212,6 @@ out.write("</table></div>");
 </div>
 
 
-<!-- 
 
-<br>
-
-
-
-<br>
-<h1>Borrar Curso</h1>
-<input type="text" >
- <input type="button" onclick="borrarCurso();" value="Borrar Curso">
- <br>
- 
- <h1>Editar Curso</h1><br>
- <select>
-<%/*
-out.print("<option>");
-out.write("valor 1");
-
-out.print("</option>");
-
-*/%>
- 
-
-</select><br>
-<label>Nuevo Nombre de curso</label>
-<input type="text" id="nombreCursoNuevo">
-<label>Nueva fecha de curso</label>
-<input type="text" id="fechaCursoNueva" >
-<label></label> 
-<input type="button" onclick="editarCurso" value="Editar Curso">
--->
 </body>
 </html>

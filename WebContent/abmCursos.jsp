@@ -9,6 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 <script>
 var ajax;
 
@@ -84,6 +85,18 @@ function editBorr(opcion,algo)
 	document.getElementById("salida").innerHTML=opcion+"<p>"+algo+"</p>";
 
 }
+function agregarCurso()
+{
+var codigoCurso=document.getElementById("codigoCurso").value;	
+var nombreCurso=document.getElementById("nombreCurso").value;
+var anio=document.getElementById("anio").value;
+document.getElementById("nuevoCurso").innerHTML="<h3>Seleccione lista Alumnos</h3>";
+
+
+document.getElementById("nuevoCurso2").innerHTML="<input type='hidden' id='codigo' value='"+codigoCurso+"'><input type='hidden' id='nCurso' value='"+nombreCurso+"'><input type='hidden' id='anio' value='"+anio+"'>";
+
+
+}
 
 
 
@@ -94,10 +107,39 @@ function editBorr(opcion,algo)
 <a href="menuPrincipal.jsp">Menu principal</a><br>
 
 <h1>Crear curso</h1>
+
+<div id="formuAlumnos">
+<div id="izq_form">
+<label>Codigo</label><br>
+<input type="text" id="codigoCurso" name="alumno"/>
 <label>Nombre Curso</label><br>
-<input type="text" id="alumno" name="alumno" >
+<input type="text" id="nombreCurso" name="nombreCurso"/>
+<label>Año</label><br>
+<input type="text" id="anio" name="anio"/>
 <label>Seleccione alumnos</label>
 <input type="button" onclick="agregarCurso();" value="Agregar Curso">
+</div>
+	<div id="der_form">
+		<div id="nuevoCurso">
+
+		</div>
+		<div id="nuevoCurso2">
+
+		</div>
+		<div id="agregarListaAlumnos"> 
+
+		</div>	
+
+
+
+	</div>
+
+</div>
+
+
+
+
+
 
 <div id="listaAlumnos">
 <%

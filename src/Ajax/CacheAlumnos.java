@@ -44,8 +44,8 @@ public class CacheAlumnos {
 		Alumno a1 = new Alumno("pepe","lopez","123");
 		Alumno a2= new Alumno("pancho","gimenez","abc");
 
-
-		
+		a1.setLegajo(1235);
+		a2.setLegajo(4569);
 		
 		listaAlumnos.add(a1);
 		listaAlumnos.add(a2);
@@ -169,8 +169,8 @@ public class CacheAlumnos {
 		this.listaMaterias.add(materia);
 	}
 
-	public HashSet<Materia> getListaAlumnos() {
-		return this.listaMaterias;
+	public HashSet<Alumno> getListaAlumnos() {
+		return this.listaAlumnos;
 	}
 
 	public void borrarMateria(Materia materia)

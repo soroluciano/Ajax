@@ -102,6 +102,17 @@ document.getElementById("nuevoCurso2").innerHTML="<input type='hidden' id='codig
 
 }
 
+function checkAll(valor)
+{
+	for(i=0;i<valor.length;i++)
+	{
+			
+		
+		
+	}
+	
+	}
+
 
 
 

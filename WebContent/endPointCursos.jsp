@@ -122,8 +122,8 @@ switch(opcion)
 		out.print(nombreCurso);
 		out.print(anio);
 		
-
-
+break;
+	}
 		
 		/*crear cursos*/
 		/*es decir guardar materia y atributos*/
@@ -139,7 +139,7 @@ switch(opcion)
 			
 		
 		
-		
+		/*
 		out.write("<h1>Cursos</h1>");
 		out.write("<div class='table-responsive'><table class='table'>");
 
@@ -208,9 +208,12 @@ switch(opcion)
 		
 		out.write("</table></div>");
 		
-		*/
+		
+		
+		
 	}
 		
+		*/
 		
 		
 		
@@ -224,10 +227,9 @@ switch(opcion)
 		
 		
 		
-		
-		
+	/*	
 	break;
-	}	
+	}	*/
 
 }
 

@@ -58,21 +58,21 @@ else if (opcion==2)
 			
 		out.write("<tr>");
 		out.write("<td>");
-		out.print(curso.getCodigo());
+		out.print(cur.getCodigo());
 		out.write("</td>");
 				
 		out.write("<td>");	
-		out.print(curso.getMateria());
+		out.print(cur.getMateria());
 		out.write("</td>");
 		
 		out.write("<td>");		
-		out.print(curso.getAño());
+		out.print(cur.getAño());
 		out.write("</td>");
 		
 		out.write("<td>");		
 		
 		out.write("<input type='button'  value='Editar' onclick='abmCurso(1,");
-		out.print(curso.getCodigo());
+		out.print(cur.getCodigo());
 	
 		out.write(");'/>");
 	
@@ -82,7 +82,7 @@ else if (opcion==2)
 		
 		
 		out.write("<input type='button'  value='Borrar' onclick='abmCurso(2,");
-		out.print(curso.getCodigo());
+		out.print(cur.getCodigo());
 	
 		out.write(");'/>");
 		
@@ -93,7 +93,7 @@ else if (opcion==2)
 		
 		out.write("<td>");		
 		out.write("<a href='detalleCurso.jsp?codigo=");
-		out.print(curso.getCodigo());
+		out.print(cur.getCodigo());
 		out.write("'>Ver detalle</a>");
 		
 		

@@ -90,7 +90,11 @@ function agregarCurso()
 var codigoCurso=document.getElementById("codigoCurso").value;	
 var nombreCurso=document.getElementById("nombreCurso").value;
 var anio=document.getElementById("anio").value;
-document.getElementById("nuevoCurso").innerHTML="<h3>Seleccione lista Alumnos</h3>";
+
+document.getElementByClass("alumnos").checked;
+
+
+document.getElementById("nuevoCurso").innerHTML="<h3>Seleccione lista Alumnos</h3><br><div>";
 
 
 document.getElementById("nuevoCurso2").innerHTML="<input type='hidden' id='codigo' value='"+codigoCurso+"'><input type='hidden' id='nCurso' value='"+nombreCurso+"'><input type='hidden' id='anio' value='"+anio+"'>";
@@ -117,9 +121,21 @@ document.getElementById("nuevoCurso2").innerHTML="<input type='hidden' id='codig
 <label>Año</label><br>
 <input type="text" id="anio" name="anio"/>
 <label>Seleccione alumnos</label>
+<%
+			out.print("<form>");
+			for(Alumno alumno:CacheAlumnos.getInstance().getListaAlumnos())
+			{
+				out.print("<label>"+alumno.getNombre()+" "+alumno.getApellido()+"</label>");
+				out.print("<input type='checkbox' class='alumnos' value="+alumno.getLegajo()+">");
+				out.print("<br>");
+			}
+			out.print("</form>");		
+			
+	
+		%>
 <input type="button" onclick="agregarCurso();" value="Agregar Curso">
 </div>
-	<div id="der_form">
+	
 		<div id="nuevoCurso">
 
 		</div>
@@ -134,7 +150,7 @@ document.getElementById("nuevoCurso2").innerHTML="<input type='hidden' id='codig
 
 	</div>
 
-</div>
+
 
 
 

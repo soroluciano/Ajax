@@ -11,7 +11,7 @@ public class CacheAlumnos {
 	private HashSet<Materia> listaMaterias = new HashSet<Materia>();
 	private HashSet<Curso> listaCursos = new HashSet<Curso>();
 	private HashSet<Usuario> listaUsuarios = new HashSet<Usuario>(); 
-	
+
 	private CacheAlumnos()
 	{
 		Materia m1 = new Materia();
@@ -46,34 +46,34 @@ public class CacheAlumnos {
 
 		a1.setLegajo(1235);
 		a2.setLegajo(4569);
-		
+
 		listaAlumnos.add(a1);
 		listaAlumnos.add(a2);
 
-		
+
 		Curso curso1 = new Curso();
-		
+
 		Curso curso2 = new Curso();
-		
+
 		curso1.agregarAlumno(a1);
 		curso1.agregarAlumno(a2);
 		curso1.setAño(2010);
 		curso1.setCodigo(1010);
 		curso1.setMateria(m2);
-		
-		
+
+
 		curso2.agregarAlumno(a1);
 		curso2.agregarAlumno(a2);
 		curso2.setAño(2011);
 		curso2.setCodigo(1015);
 		curso2.setMateria(m1);
-		
+
 		listaCursos.add(curso1);
 		listaCursos.add(curso2);
-	
-		
+
+
 		/*Creando usuarios*/
-		
+
 		Usuario u1 = new Usuario ();
 		Usuario u2 = new Usuario();
 		Usuario u3 = new Usuario ();
@@ -83,11 +83,11 @@ public class CacheAlumnos {
 		u2.setPassword("123");
 		u3.setNombreUsuario("juan");
 		u3.setPassword("123");
-		
+
 		listaUsuarios.add(u1);
 		listaUsuarios.add(u2);
 		listaUsuarios.add(u3);
-		
+
 	}
 
 	public static CacheAlumnos getInstance()
@@ -118,7 +118,7 @@ public class CacheAlumnos {
 			{
 
 				return null;
-				
+
 			}	
 		}
 
@@ -128,7 +128,7 @@ public class CacheAlumnos {
 
 
 	}
-	
+
 	public Usuario obtenerUsuario(String nombre,String pass)/*esta deberia llamarse obtener usuario*/
 	{
 
@@ -146,7 +146,7 @@ public class CacheAlumnos {
 			{
 
 				return null;
-				
+
 			}	
 		}
 
@@ -156,10 +156,10 @@ public class CacheAlumnos {
 
 
 	}
-	
-	
-	
-	
+
+
+
+
 
 	public HashSet<Materia> getListaMaterias() {
 		return listaMaterias;
@@ -176,11 +176,11 @@ public class CacheAlumnos {
 	public void borrarMateria(Materia materia)
 	{
 		this.listaMaterias.remove(materia);
-		
+
 	}
 
-	
-	
+
+
 	public void setListaAlumnos(HashSet<Alumno> listaAlumnos) {
 		this.listaAlumnos = listaAlumnos;
 	}
@@ -200,34 +200,34 @@ public class CacheAlumnos {
 	public void setListaUsuarios(HashSet<Usuario> listaUsuarios) {
 		this.listaUsuarios = listaUsuarios;
 	}
-	
+
 	public void guardarUsuario(Usuario usuario)
 	{
-		
+
 		this.listaUsuarios.add(usuario);
-		
+
 	}
-	
+
 	public HashSet<Alumno> obtenerAlumnosDelCurso(Integer codigo)
 	{
 		for(Curso curso : this.listaCursos)
 		{
 			if(curso.getCodigo().equals(codigo))
 			{
-				
+
 				return curso.obtenerListaAlumnos();
 			}
 		}
 		return null;
 	}
-	
+
 	public  Curso obtenerCursoConSuCodigo(Integer codigo)
 	{
 		for(Curso curso : CacheAlumnos.getInstance().listaCursos)
 		{
 			if(curso.getCodigo().equals(codigo))
 			{
-				
+
 				return curso;
 			}
 		}
@@ -236,10 +236,10 @@ public class CacheAlumnos {
 	public void crearCurso(Curso curso)
 	{
 		this.listaCursos.add(curso);
-		
-		
+
+
 	}
-	
+
 
 }
 

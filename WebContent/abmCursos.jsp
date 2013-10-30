@@ -112,7 +112,7 @@ function editBorr(opcion,algo)
 <label>Año</label><br>
 <input type="text" id="anio" name="anio"/>
 
-<input type="button" onclick="abmCurso(3,'null');" value="Agregar Curso">
+<input type="button" onclick="abmCurso(3,1);" value="Agregar Curso"/>
 </div>
 	
 		<div id="nuevoCurso">

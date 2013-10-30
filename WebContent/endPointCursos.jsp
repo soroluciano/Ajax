@@ -115,25 +115,116 @@ switch(opcion)
 	
 	case 3:
 	{
+		
+		out.print(opcion);
+		out.print(codigo);
+		out.print(codigoCurso);
+		out.print(nombreCurso);
+		out.print(anio);
+		
+
+
+		
 		/*crear cursos*/
 		/*es decir guardar materia y atributos*/
-		
+	/*	
 	for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 	{
 		
-		if(curso.getAño().equals(anio)&&curso.getCodigo().equals(codigoCurso))
-		{
-			
-			break;
-			
-		}
-		else
-		{
+		
 			
 			CacheAlumnos.getInstance().crearCurso(curso);
-		}
-	
+			
+			
+			
+		
+		
+		
+		out.write("<h1>Cursos</h1>");
+		out.write("<div class='table-responsive'><table class='table'>");
+
+
+		out.write("<tr class='warning'>");
+		out.write("<td>Codigo</td>");
+		out.write("<td>Materia</td>");
+		out.write("<td>Año</td>");
+		out.write("<td>Editar</td>");
+		out.write("<td>Borrar</td>");
+		out.write("<td>Ver detalle</td>");
+		out.write("</tr>");
+		
+		
+		for(Curso cur:CacheAlumnos.getInstance().getListaCursos())
+		{		
+			
+				
+			out.write("<tr>");
+			out.write("<td>");
+			out.print(cur.getCodigo());
+			out.write("</td>");
+					
+			out.write("<td>");	
+			out.print(cur.getMateria());
+			out.write("</td>");
+			
+			out.write("<td>");		
+			out.print(cur.getAño());
+			out.write("</td>");
+			
+			out.write("<td>");		
+			
+			out.write("<input type='button'  value='Editar' onclick='abmCurso(1,");
+			out.print(cur.getCodigo());
+		
+			out.write(");'/>");
+		
+			out.write("</td>");
+			
+			out.write("<td>");	
+			
+			
+			out.write("<input type='button'  value='Borrar' onclick='abmCurso(2,");
+			out.print(cur.getCodigo());
+		
+			out.write(");'/>");
+			
+			
+
+			
+			out.write("</td>");
+			
+			out.write("<td>");		
+			out.write("<a href='detalleCurso.jsp?codigo=");
+			out.print(cur.getCodigo());
+			out.write("'>Ver detalle</a>");
+			
+			
+			out.write("</td>");
+			
+
+
+			out.write("</tr>");
 	}
+		
+		out.write("</table></div>");
+		
+		*/
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	break;
 	}	

@@ -15,7 +15,9 @@ String apellido = request.getParameter("apellido");
 Integer legajo = Integer.valueOf(request.getParameter("legajo"));
 
 Alumno al = new Alumno();
-
+al.setNombre(nombre);
+al.setApellido(apellido);
+al.setLegajo(legajo);
 CacheAlumnos.getInstance().crearAlumno(al);
 
 for(Alumno alumno:CacheAlumnos.getInstance().getListaAlumnos())

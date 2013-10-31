@@ -60,14 +60,14 @@ public class CacheAlumnos {
 		curso1.setAño(2010);
 		curso1.setCodigo(1010);
 		curso1.setMateria(m2);
-
+		curso1.setNombreCurso("Introduccion a  la Programacion");
 
 		curso2.agregarAlumno(a1);
 		curso2.agregarAlumno(a2);
 		curso2.setAño(2011);
 		curso2.setCodigo(1015);
 		curso2.setMateria(m1);
-
+		curso2.setNombreCurso("Primeros pasos en educacion fisica");
 		listaCursos.add(curso1);
 		listaCursos.add(curso2);
 

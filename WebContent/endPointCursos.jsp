@@ -31,10 +31,19 @@
 		switch (opcion) {
 		case 1: {
 
-			out.write("<div class='in'>Nombre<input type='text' id='codigoCurso'></div>");
-			out.write("<div class='in'><input type='text' id='nombreCurso'/></div>");
-			out.write("<div class='in'><input type='text' id='anio'></div>");
-			out.write("<input type='button' onclick='(4,"+codigo+");'>");
+			/*recorrer la lista de cursos donde */
+			for(Curso cu :CacheAlumnos.getInstance().getListaCursos())
+			{
+				if(cu.getCodigo().equals(codigo))
+				{
+					out.write("<div class='in'>Codigo<input type='text' id='codigoCurso' value="+cu.getCodigo()+"></div>");
+					out.write("<div class='in'>Nombre del Curso<input type='text' id='nombreCurso' value="+cu.getNombreCurso()+"/></div>");
+					out.write("<div class='in'>Año<input type='text' id='anio' value="+cu.getAño()+"></div>");
+					out.write("<input type='button' value=''onclick='(4,"+cu.getCodigo()+");'>");
+				}
+				
+			}
+			
 
 			break;
 		}

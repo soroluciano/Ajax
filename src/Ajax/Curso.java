@@ -6,6 +6,7 @@ public class Curso {
 	private Integer codigo;
 	private Integer año;
 	private Materia materia;
+	private String nombreCurso;
 	private HashSet<Alumno> listaAlumnos = new HashSet<Alumno>();
 
 
@@ -33,6 +34,12 @@ public class Curso {
 	}
 	public void setMateria(Materia materia) {
 		this.materia = materia;
+	}
+	public String getNombreCurso() {
+		return nombreCurso;
+	}
+	public void setNombreCurso(String nombreCurso) {
+		this.nombreCurso = nombreCurso;
 	}
 	
 	

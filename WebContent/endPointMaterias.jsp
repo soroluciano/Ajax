@@ -159,7 +159,7 @@
 			
 			
 			out.print("<p>esto es el 4</p>");
-/*
+
 			for (Materia mater1 : CacheAlumnos.getInstance().getListaMaterias()) {
 
 				if (mater1.getCodigo().equals(codigoMateria)) {
@@ -218,11 +218,11 @@
 
 					}/*fin del for*/
 
-				/*	out.write("</table></div>");*/
+				out.write("</table></div>");
 
-			/*	}*//*fin del if*/
+				}/*fin del if*/
 
-	/*		}*//*fin for general*/
+			}//*fin for general*/
 					
 					break;
 		}/*fin del case*/

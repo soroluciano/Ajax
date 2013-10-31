@@ -80,20 +80,28 @@ function abmMateriasEditar(opcion,codigo)
 	// Almacenamos en el control al funcion que se invocara cuando la peticion
 	// cambie de estado	
 	
-	if(opcion==4)
+if(opcion==4)
 	{
-
-		ajax.onreadystatechange = abmMateriasCallback;
-	}
-	else
-	{	
-	ajax.onreadystatechange = abmMateriasEditarCallback;
-	}
+	ajax.onreadystatechange = abmMateriasCallback;
+	
 	// Enviamos la peticion
 	ajax.open( "GET", "endPointMaterias.jsp?nombreMateria="+document.all.nombreMateria2.value+"&codigoMateria="+document.all.codigoMateria2.value+
 			"&opcion="+opcion+"&codigo="+codigo, true);
 	ajax.send( "" );
-}
+	}
+else
+	{
+ajax.onreadystatechange = abmMateriasEditarCallback;
+	
+	// Enviamos la peticion
+	ajax.open( "GET", "endPointMaterias.jsp?nombreMateria="+document.all.nombreMateria.value+"&codigoMateria="+document.all.codigoMateria.value+
+			"&opcion="+opcion+"&codigo="+codigo, true);
+	ajax.send( "" );
+	
+	
+	}
+		
+	}
 
 
 

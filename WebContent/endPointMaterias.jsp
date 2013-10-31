@@ -28,9 +28,9 @@
 
 			for (Materia mater : CacheAlumnos.getInstance().getListaMaterias()) {
 				if (mater.getCodigo().equals(codigo)) {
-					out.write("<div class='in'>Codigo<input type='text' id='codigoMateria2' value="+mater.getCodigo()+"></div>");
-					out.write("<div class='in'>Nombre <input type='text' id='nombreMateria2' value="+ mater.getNombre()+"></div>");
-					out.write("<div><input type='button' value='Guardar' onclick='abmMaterias(4,"+ mater.getCodigo()+")'></div>");
+					out.write("<div class='in'>Codigo<input type='text' id='codigoMateria2' value="+mater.getCodigo()+"/></div>");
+					out.write("<div class='in'>Nombre <input type='text' id='nombreMateria2' value="+ mater.getNombre()+"/></div>");
+					out.write("<div><input type='button' value='Guardar' onclick='abmMateriasEditar(4,"+ mater.getCodigo()+");'/></div>");
 				}
 				
 			}
@@ -156,7 +156,10 @@
 		}
 
 		case 4: {
-
+			
+			
+			out.print("<p>esto es el 4</p>");
+/*
 			for (Materia mater1 : CacheAlumnos.getInstance().getListaMaterias()) {
 
 				if (mater1.getCodigo().equals(codigoMateria)) {
@@ -168,7 +171,8 @@
 					Materia materia1 = new Materia();
 					materia1.setCodigo(codigoMateria);
 					materia1.setNombre(nombreMateria);
-					CacheAlumnos.getInstance().getListaMaterias().add(materia1);
+					
+					CacheAlumnos.getInstance().agregarMaterias(materia1);
 
 					out.write("<h1>Materias</h1>");
 					out.write("<div class='table-responsive'><table class='table'>");
@@ -212,18 +216,18 @@
 
 						out.write("</tr>");
 
-					}
+					}/*fin del for*/
 
-					out.write("</table></div>");
+				/*	out.write("</table></div>");*/
 
-				}
+			/*	}*//*fin del if*/
 
-			}
+	/*		}*//*fin for general*/
+					
+					break;
+		}/*fin del case*/
 
-			break;
-		}
-
-		}
+		}/*fin sdel switch*/
 	%>
 
 </body>

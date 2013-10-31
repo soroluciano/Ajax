@@ -43,7 +43,7 @@ function recuperarMaterias()
 	ajax.onreadystatechange = recuperarMateriasCallback;
 
 	// Enviamos la peticion
-	ajax.open( "GET", "endPointListaMaterias.jsp", true);
+	ajax.open( "GET", "ListaMaterias.jsp", true);
 	ajax.send( "" );
 }
 
@@ -63,7 +63,7 @@ function avmRecuperarMateriasCallback()
 
 
 
-function avmMateria(valor)
+function abmMateria(valor)
 {
 	// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
 	if( window.XMLHttpRequest )
@@ -76,7 +76,7 @@ function avmMateria(valor)
 	ajax.onreadystatechange = avmRecuperarMateriasCallback;
 
 	// Enviamos la peticion
-	ajax.open( "GET", "endPointAvm.jsp?nombreMateria="+document.all.nombreMateria.value+"&codigoMateria="+document.all.codigoMateria.value+
+	ajax.open( "GET", "endPointMaterias.jsp?nombreMateria="+document.all.nombreMateria.value+"&codigoMateria="+document.all.codigoMateria.value+
 			"&opcion="+valor, true);
 	ajax.send( "" );
 }
@@ -94,19 +94,28 @@ function avmMateria(valor)
 
 
 <div>
-			<label>Agregar nueva materia</label><br>
-			<div class='in'>Codigo Materia
+			<div id="izq_form">
+			<h1>Crear nueva materia</h1>
+			<div class='in'>Codigo
 			<input type="text" name="codigoMateria" id="codigoMateria" />
 			</div>
-			<div class='in'>Nombre Materia	
+			<div class='in'>Nombre Curso	
 			<input type="text" name="nombreAlumno" id="nombreAlumno" />
 			</div>
 			
+		</div>
+			
 </div>
 
-<input type="button" onclick="avmMateria('a');" value="agregar"/>
+<input type="button" onclick="avmMateria();" value="agregar"/>
 
 <div id="materias"></div>
+
+
+
+
+
+
 
 
 

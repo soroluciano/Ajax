@@ -79,11 +79,13 @@ public class CacheAlumnos {
 		Usuario u3 = new Usuario ();
 		u1.setNombreUsuario("pepe");
 		u1.setPassword("123");
+		u1.setCodigo(1010);
 		u2.setNombreUsuario("luis");
 		u2.setPassword("123");
+		u2.setCodigo(1015);
 		u3.setNombreUsuario("juan");
 		u3.setPassword("123");
-
+		u3.setCodigo(1523);
 		listaUsuarios.add(u1);
 		listaUsuarios.add(u2);
 		listaUsuarios.add(u3);

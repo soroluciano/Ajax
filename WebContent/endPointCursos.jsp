@@ -74,7 +74,7 @@
 				out.write("</td>");
 
 				out.write("<td>");
-				out.print(cur.getMateria());
+				out.print(cur.getNombreCurso());
 				out.write("</td>");
 
 				out.write("<td>");
@@ -83,7 +83,7 @@
 
 				out.write("<td>");
 
-				out.write("<input type='button'  value='Editar' onclick='abmCurso(1,");
+				out.write("<input type='button'  value='Editar' onclick='abmCursoEditar(1,");
 				out.print(cur.getCodigo());
 
 				out.write(");'/>");
@@ -115,18 +115,12 @@
 
 		case 3: {
 
-			out.print("<br>");
-			out.print(codigoCurso);
-
-			out.print("<br>");
-			out.print(nombreCurso);
-			out.print("<br>");
-			out.print(anio);
+		
 
 			Curso cur = new Curso();
 			cur.setAño(anio);
 			cur.setCodigo(codigoCurso);
-
+			cur.setNombreCurso(nombreCurso);
 			CacheAlumnos.getInstance().crearCurso(cur);
 
 			out.write("<h1>Cursos</h1>");
@@ -149,7 +143,7 @@
 				out.write("</td>");
 
 				out.write("<td>");
-				out.print(curs.getMateria());
+				out.print(curs.getNombreCurso());
 				out.write("</td>");
 
 				out.write("<td>");
@@ -158,7 +152,7 @@
 
 				out.write("<td>");
 
-				out.write("<input type='button'  value='Editar' onclick='abmCurso(1,");
+				out.write("<input type='button'  value='Editar' onclick='abmCursoEditar(1,");
 				out.print(curs.getCodigo());
 
 				out.write(");'/>");
@@ -188,8 +182,78 @@
 		}
 
 		case 4: {
-			out.print("<div>entro</div>");
-			out.print(codigo);
+		
+			for(Curso cur : CacheAlumnos.getInstance().getListaCursos())
+			{
+			
+				if(cur.getCodigo().equals(codigo))
+				{
+				
+					cur.setAño(anio);
+					cur.setCodigo(codigoCurso);
+					cur.setNombreCurso(nombreCurso);
+					CacheAlumnos.getInstance().crearCurso(cur);
+
+					out.write("<h1>Cursos</h1>");
+					out.write("<div class='table-responsive'><table class='table'>");
+
+					out.write("<tr class='warning'>");
+					out.write("<td>Codigo</td>");
+					out.write("<td>Materia</td>");
+					out.write("<td>Año</td>");
+					out.write("<td>Editar</td>");
+					out.write("<td>Borrar</td>");
+					out.write("<td>Ver detalle</td>");
+					out.write("</tr>");
+
+					for (Curso curs : CacheAlumnos.getInstance().getListaCursos()) {
+
+						out.write("<tr>");
+						out.write("<td>");
+						out.print(curs.getCodigo());
+						out.write("</td>");
+
+						out.write("<td>");
+						out.print(curs.getNombreCurso());
+						out.write("</td>");
+
+						out.write("<td>");
+						out.print(curs.getAño());
+						out.write("</td>");
+
+						out.write("<td>");
+
+						out.write("<input type='button'  value='Editar' onclick='abmCursoEditar(1,");
+						out.print(curs.getCodigo());
+
+						out.write(");'/>");
+
+						out.write("</td>");
+
+						out.write("<td>");
+
+						out.write("<input type='button'  value='Borrar' onclick='abmCurso(2,");
+						out.print(curs.getCodigo());
+
+						out.write(");'/>");
+
+						out.write("</td>");
+
+						out.write("<td>");
+						out.write("<a href='detalleCurso.jsp?codigo=");
+						out.print(curs.getCodigo());
+						out.write("'>Ver detalle</a>");
+
+						out.write("</td>");
+
+						out.write("</tr>");
+					}
+					out.write("</table></div>");
+					
+				}
+				
+			}
+			
 			
 			break;
 		}

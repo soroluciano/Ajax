@@ -41,12 +41,44 @@ function abmAlumno(opcion,codigo)
 	ajax.open( "GET", "endPointAlumno.jsp?nombre="+document.all.nombreAlumno.value+"&apellido="+document.all.apellido.value+"&legajo="+document.all.legajo.value+"&opcion="+opcion+"&codigo="+codigo, true);
 	ajax.send( "" );
 }
+
+function listarAlumnosCallback()
+{
+	// Comprobamos si la peticion se ha completado (estado 4)
+	if( ajax.readyState == 4 )
+	{
+		// Comprobamos si la respuesta ha sido correcta (resultado HTTP 200)
+		if( ajax.status == 200 )
+		{
+			// Escribimos el resultado en la pagina HTML mediante DHTML
+			document.all.listaAlumnos.innerHTML = "<b>"+ajax.responseText+"</b>";	
+		}
+	}
+}
+
+function listarAlumnos()
+{
+	// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
+	if( window.XMLHttpRequest )
+		ajax = new XMLHttpRequest(); // No Internet Explorer
+	else
+		ajax = new ActiveXObject("Microsoft.XMLHTTP"); // Internet Explorer
+
+	// Almacenamos en el control al funcion que se invocara cuando la peticion
+	// cambie de estado	
+	ajax.onreadystatechange = abmAlumnoCallback;
+
+	// Enviamos la peticion
+	ajax.open( "GET", "listaAlumnos.jsp", true);
+	ajax.send( "" );
+}
+
 </script>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" />
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 
 </head>
-<body>
+<body onload="listaAlumnos.jsp">
 <a href="menuPrincipal.jsp">Menu Principal</a>
 <div>
 	<h3>Crear Nuevo Alumno</h3>
@@ -65,69 +97,10 @@ function abmAlumno(opcion,codigo)
 	
 </div>
 		<br>
+		<div id="listaAlumnos">
+		</div>
 		<div id="resultado">
-		<%
-		
-		
-		out.write("<h1>Alumnos</h1>");
-		out.write("<div class='table-responsive'><table class='table'>");
-		out.write("<tr class='warning'>");
-		out.write("<td>Legajo</td>");
-		out.write("<td>Nombre</td>");
-		out.write("<td>Apellido</td>");
-		out.write("<td>Editar</td>");
-		out.write("<td>Borrar</td>");
-		
-		out.write("</tr>");
-		for(Alumno alumno:CacheAlumnos.getInstance().getListaAlumnos())
-		{		
 
-				out.write("<tr>");
-				
-						
-				out.write("<td>");	
-				out.print(alumno.getLegajo());
-				out.write("</td>");
-				
-				out.write("<td>");	
-				out.print(alumno.getNombre());
-				out.write("</td>");
-				
-				out.write("<td>");	
-				out.print(alumno.getApellido());
-				out.write("</td>");
-				
-				out.write("<td>");		
-				
-				out.write("<input type='button'  value='Editar' onclick='abmAlumno(2,");
-				out.print(alumno.getNombre());
-			
-				out.write(");'/>");	
-				out.write("</td>");		
-				out.write("<td>");	
-				
-				
-				out.write("<input type='button'  value='Borrar' onclick='abmAlumno(3,");
-				out.print(alumno.getLegajo());
-			
-				out.write(");'/>");
-				
-			
-				out.write("</td>");
-			
-				
-
-
-				out.write("</tr>");
-				
-		}
-
-
-		out.write("</table></div>");
-
-		
-		
-		%>
 		<a href="menuPrincipal.jsp">Menu Principal</a>
 		</div>
 </body>

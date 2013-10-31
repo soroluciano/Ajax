@@ -18,9 +18,7 @@
 		String nombreMateria = (String) request.getParameter("nombreMateria");
 		Integer codigoMateria = Integer.valueOf(request.getParameter("codigoMateria"));
 
-		
-		
-		 
+	
 		
 
 		switch (opcion) {

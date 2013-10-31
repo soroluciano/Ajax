@@ -47,6 +47,7 @@ function abmAlumno(opcion,codigo)
 
 </head>
 <body>
+<a href="menuPrincipal.jsp">Menu Principal</a>
 <div>
 	<h3>Crear Nuevo Alumno</h3>
 		<div>
@@ -68,7 +69,7 @@ function abmAlumno(opcion,codigo)
 		<%
 		
 		
-		out.write("<h1>Cursos</h1>");
+		out.write("<h1>Alumnos</h1>");
 		out.write("<div class='table-responsive'><table class='table'>");
 		out.write("<tr class='warning'>");
 		out.write("<td>Legajo</td>");
@@ -127,7 +128,7 @@ function abmAlumno(opcion,codigo)
 		
 		
 		%>
-		
+		<a href="menuPrincipal.jsp">Menu Principal</a>
 		</div>
 </body>
 </html>

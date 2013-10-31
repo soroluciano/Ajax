@@ -5,14 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body>
 
-<ul>
-<li><a href="abmMaterias.jsp">Materias</a></li>
-<li><a href="abmUsuarios.jsp">usuarios</a></li>
-<li><a href="abmCursos.jsp">Cursos</a></li>
-</ul>
+
+<div><a href="abmAlumno.jsp" class="btn btn-primary">Alumnos</a>
+<a href="abmMaterias.jsp" class="btn btn-success">Materias</a>
+<a href="abmUsuarios.jsp" class="btn btn-info">usuarios</a>
+<a href="abmCursos.jsp" class="btn btn-warning">Cursos</a></div>
+
 
 
 </body>

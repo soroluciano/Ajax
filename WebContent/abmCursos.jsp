@@ -13,38 +13,6 @@
 <script>
 var ajax;
 
-function recuperarMateriasCallback()
-{
-	// Comprobamos si la peticion se ha completado (estado 4)
-	if( ajax.readyState == 4 )
-	{
-		// Comprobamos si la respuesta ha sido correcta (resultado HTTP 200)
-		if( ajax.status == 200 )
-		{
-			// Escribimos el resultado en la pagina HTML mediante DHTML
-			document.all.salida.innerHTML = "<b>"+ajax.responseText+"</b>";	
-		}
-	}
-}
-
-function recuperarMaterias()
-{
-	// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
-	if( window.XMLHttpRequest )
-		ajax = new XMLHttpRequest(); // No Internet Explorer
-	else
-		ajax = new ActiveXObject("Microsoft.XMLHTTP"); // Internet Explorer
-
-	// Almacenamos en el control al funcion que se invocara cuando la peticion
-	// cambie de estado	
-	ajax.onreadystatechange = recuperarMateriasCallback;
-
-	// Enviamos la peticion
-	ajax.open( "GET", "endpointMaterias.jsp?nombre="+document.all.nombre.value, true);
-	ajax.send( "" );
-}
-
-
 function abmCursoCallback()
 {
 	// Comprobamos si la peticion se ha completado (estado 4)
@@ -80,21 +48,6 @@ function abmCurso(opcion,codigo)
 	ajax.send( "" );
 }
 
-function editBorr(opcion,algo)
-{
-	
-	//var partes=valor.split("/");
-	
-	
-	document.getElementById("salida").innerHTML=opcion+"<p>"+algo+"</p>";
-
-}
-
-
-
-
-
-
 
 </script>
 </head>
@@ -104,13 +57,19 @@ function editBorr(opcion,algo)
 <h1>Crear curso</h1>
 
 <div id="formuAlumnos">
-<div id="izq_form">
-<label>Codigo</label><br>
-<input type="text" id="codigoCurso" name="alumno"/>
-<label>Nombre Curso</label><br>
-<input type="text" id="nombreCurso" name="nombreCurso"/>
-<label>Año</label><br>
-<input type="text" id="anio" name="anio"/>
+	<div id="izq_form">
+			<div class='in'>Codigo
+			<input type="text" name="codigoCurso" id="codigoCurso" />
+			</div>
+			<div class='in'>Nombre Curso	
+			<input type="text" name="nombreCurso" id="nombreCurso" />
+			</div>
+			<div class='in'>Año
+			<input type="text" name="anio" id="anio" />
+			</div>
+		</div>
+
+
 
 <input type="button" onclick="abmCurso(3,1);" value="Agregar Curso"/>
 </div>
@@ -127,7 +86,7 @@ function editBorr(opcion,algo)
 
 
 
-	</div>
+
 
 
 
@@ -150,68 +109,56 @@ out.write("</tr>");
 for(Curso curso:CacheAlumnos.getInstance().getListaCursos())
 {		
 	
-		
-
-		out.write("<tr>");
-		
-				
-		out.write("<td>");	
-		out.print(curso.getMateria());
-		out.write("</td>");
-		
-		
-		out.write("<td>");		
-		
-		out.write("<input type='button'  value='Editar' onclick='abmCurso(1,");
-		out.print(curso.getCodigo());
+	out.write("<tr>");
 	
-		out.write(");'/>");	
-		out.write("</td>");		
-		out.write("<td>");	
-		
-		
-		out.write("<input type='button'  value='Borrar' onclick='abmCurso(2,");
-		out.print(curso.getCodigo());
-	
-		out.write(");'/>");
-		
-	
-		out.write("</td>");
-		
-		out.write("<td>");		
-		out.write("<a href='detalleCurso.jsp?codigo=");
-		out.print(curso.getCodigo());
-		out.write("'>Ver detalle</a>");
-		
-		
-		out.write("</td>");
-		
 
+	out.write("<td>");
+	out.print(curso.getMateria());
+	out.write("</td>");
 
-		out.write("</tr>");
+	
+
+	out.write("<td>");
+
+	out.write("<input type='button'  value='Editar' onclick='abmCurso(1,");
+	out.print(curso.getCodigo());
+
+	out.write(");'/>");
+
+	out.write("</td>");
+
+	out.write("<td>");
+
+	out.write("<input type='button'  value='Borrar' onclick='abmCurso(2,");
+	out.print(curso.getCodigo());
+
+	out.write(");'/>");
+
+	out.write("</td>");
+
+	out.write("<td>");
+	out.write("<a href='detalleCurso.jsp?codigo=");
+	out.print(curso.getCodigo());
+	out.write("'>Ver detalle</a>");
+
+	out.write("</td>");
+
+	out.write("</tr>");
 		
 }
 
 
 out.write("</table></div>");
-
-
-
-
-
-/*parte vieja*/
-
-
 	
 
 %>
 </div>
 
-<div id="salida">
+<div id="">
 
 </div>
 
-
+<a href="menuPrincipal.jsp">Menu principal</a>
 
 </body>
 </html>

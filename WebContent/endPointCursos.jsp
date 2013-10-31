@@ -30,7 +30,13 @@
 
 		switch (opcion) {
 		case 1: {
-			out.print("editar");
+
+			out.write("<div class='in'>Nombre<input type='text' id='codigoCurso'></div>");
+			out.write("<div class='in'><input type='text' id='nombreCurso'/></div>");
+			out.write("<div class='in'><input type='text' id='anio'></div>");
+			out.write("<input type='button' onclick='(4,"+codigo+");'>");
+
+			break;
 		}
 		case 2: {
 			Curso curso = new Curso();
@@ -168,8 +174,14 @@
 
 				out.write("</tr>");
 			}
-
 			out.write("</table></div>");
+			break;
+		}
+
+		case 4: {
+			out.print("<div>entro</div>");
+			out.print(codigo);
+			
 			break;
 		}
 

@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <script type="text/javascript">
 var ajax;
 
@@ -41,6 +42,8 @@ function crearUsers()
 	ajax.send( "" );
 }
 </script>
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body>
 <a href="menuPrincipal.jsp">Menu principal</a>

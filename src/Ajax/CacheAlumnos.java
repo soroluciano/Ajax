@@ -272,7 +272,18 @@ public class CacheAlumnos {
 		}
 		return null;
 	}
+	public  Alumno obtenerAlumnoConSuLegajo(Integer legajo )
+	{
+		for(Alumno alumno: CacheAlumnos.getInstance().getListaAlumnos())
+		{
+			if(alumno.getLegajo().equals(legajo))
+			{
 
+				return alumno;
+			}
+		}
+		return null;
+	}
 }
 
 

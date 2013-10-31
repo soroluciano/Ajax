@@ -42,8 +42,8 @@
 				
 				out.write("<td>");		
 				
-				out.write("<input type='button'  value='Editar' onclick='abmAlumno(2,");
-				out.print(alumno.getNombre());
+				out.write("<input type='button'  value='Editar' onclick='abmAlumnoEditar(2,");
+				out.print(alumno.getLegajo());
 			
 				out.write(");'/>");	
 				out.write("</td>");		

@@ -140,7 +140,7 @@ function listarAlumnos()
 		<br>
 		<div id="listaAlumnos">
 		</div>
-		<div id="resultado">
+		<div id="editar">
 
 		<a href="menuPrincipal.jsp">Menu Principal</a>
 		</div>

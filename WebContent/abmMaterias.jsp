@@ -90,7 +90,7 @@ function abmMateriasEditar(opcion,codigo)
 	ajax.onreadystatechange = abmMateriasEditarCallback;
 	}
 	// Enviamos la peticion
-	ajax.open( "GET", "endPointMaterias.jsp?nombreMateria="+document.all.nombreMateria.value+"&codigoMateria="+document.all.codigoMateria.value+
+	ajax.open( "GET", "endPointMaterias.jsp?nombreMateria="+document.all.nombreMateria2.value+"&codigoMateria="+document.all.codigoMateria2.value+
 			"&opcion="+opcion+"&codigo="+codigo, true);
 	ajax.send( "" );
 }
@@ -133,8 +133,8 @@ function listarMaterias()
 
 function borrCamposMat()
 {
-	document.getElementById("codigoMateria").value=" ";
-	document.getElementById("nombreMateria").value=" ";
+	document.getElementById("codigoMateria2").value=" ";
+	document.getElementById("nombreMateria2").value=" ";
 	
 }
 

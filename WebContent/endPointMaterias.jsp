@@ -28,9 +28,9 @@
 
 			for (Materia mater : CacheAlumnos.getInstance().getListaMaterias()) {
 				if (mater.getCodigo().equals(codigo)) {
-					out.write("<div class='in'>Codigo<input type='text' id='codigoCurso' value="+ mater.getCodigo() + "></div>");
-					out.write("<div class='in'>Nombre del Curso<input type='text' id='nombreCurso' value="+ mater.getNombre() + "/></div>");
-					out.write("<div><input type='button' value='Guardar' onclick='abmMaterias(4,"+ mater.getCodigo()+")'/></div>");
+					out.write("<div class='in'>Codigo<input type='text' id='codigoMateria2' value="+mater.getCodigo()+"></div>");
+					out.write("<div class='in'>Nombre <input type='text' id='nombreMateria2' value="+ mater.getNombre()+"></div>");
+					out.write("<div><input type='button' value='Guardar' onclick='abmMaterias(4,"+ mater.getCodigo()+")'></div>");
 				}
 				
 			}

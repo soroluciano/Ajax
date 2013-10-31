@@ -32,11 +32,11 @@ public class CacheAlumnos {
 		m4.setNombre("Quimica");
 
 
-		listaMaterias.add(m1);
-		listaMaterias.add(m2);
+		this.listaMaterias.add(m1);
+		this.listaMaterias.add(m2);
 
-		listaMaterias.add(m3);
-		listaMaterias.add(m4);
+		this.listaMaterias.add(m3);
+		this.listaMaterias.add(m4);
 
 
 
@@ -47,8 +47,8 @@ public class CacheAlumnos {
 		a1.setLegajo(1235);
 		a2.setLegajo(4569);
 
-		listaAlumnos.add(a1);
-		listaAlumnos.add(a2);
+		this.listaAlumnos.add(a1);
+		this.listaAlumnos.add(a2);
 
 
 		Curso curso1 = new Curso();

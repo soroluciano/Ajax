@@ -122,7 +122,7 @@ function listarCursos()
 
 	// Almacenamos en el control al funcion que se invocara cuando la peticion
 	// cambie de estado	
-	ajax.onreadystatechange = listaCursosCallback;
+	ajax.onreadystatechange = listarCursosCallback;
 
 	// Enviamos la peticion
 	ajax.open( "GET", "listaCursos.jsp", true);

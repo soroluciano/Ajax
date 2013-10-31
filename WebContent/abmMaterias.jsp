@@ -26,14 +26,14 @@ function abmMateriasCallback()
 		if( ajax.status == 200 )
 		{
 			// Escribimos el resultado en la pagina HTML mediante DHTML
-			document.all.materias.innerHTML = "<b>"+ajax.responseText+"</b>";	
+			document.all.listaMaterias.innerHTML = "<b>"+ajax.responseText+"</b>";	
 		}
 	}
 }
 
 
 
-function abmMaterias(opcion,algo)
+function abmMaterias(opcion,codigo)
 {
 	
 	// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
@@ -44,14 +44,14 @@ function abmMaterias(opcion,algo)
 
 	// Almacenamos en el control al funcion que se invocara cuando la peticion
 	// cambie de estado	
-	ajax.onreadystatechange = avmRecuperarMateriasCallback;
+	ajax.onreadystatechange = abmMateriasCallback;
 
 	// Enviamos la peticion
 	ajax.open( "GET", "endPointMaterias.jsp?nombreMateria="+document.all.nombreMateria.value+"&codigoMateria="+document.all.codigoMateria.value+
-			"&opcion="+valor, true);
+			"&opcion="+valor+"&codigo="+codigo, true);
 	ajax.send( "" );
 }
-
+/*
 function abmMateriasEditarCallback()
 {
 	
@@ -79,16 +79,16 @@ function abmMateriasEditar(opcion,codigo)
 
 	// Almacenamos en el control al funcion que se invocara cuando la peticion
 	// cambie de estado	
-	ajax.onreadystatechange = avmRecuperarMateriasCallback;
+	ajax.onreadystatechange = abmMateriasEditarCallback;
 
 	// Enviamos la peticion
 	ajax.open( "GET", "endPointMaterias.jsp?nombreMateria="+document.all.nombreMateria.value+"&codigoMateria="+document.all.codigoMateria.value+
-			"&opcion="+valor, true);
+			"&opcion="+valor+"&codigo="+codigo, true);
 	ajax.send( "" );
 }
 
 
-
+*/
 
 /*listar materias*/
 
@@ -141,15 +141,15 @@ function listarMaterias()
 			<div class='in'>Codigo
 			<input type="text" name="codigoMateria" id="codigoMateria" />
 			</div>
-			<div class='in'>Nombre Curso	
-			<input type="text" name="nombreAlumno" id="nombreAlumno" />
+			<div class='in'>Nombre Materia	
+			<input type="text" name="nombreMateria" id="nombreMateria" />
 			</div>
 			
 		</div>
 			
 </div>
 
-<input type="button" onclick="avmMateria();" value="agregar"/>
+<input type="button" onclick="abmMaterias(3,1);" value="agregar"/>
 
 <div id="listaMaterias"></div>
 

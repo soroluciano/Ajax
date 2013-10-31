@@ -20,14 +20,16 @@ String nombreMateria=(String)request.getParameter("nombreMateria");
 Integer codigoMateria=Integer.valueOf(request.getParameter("codigoMateria"));
 
 
+	out.print(opcion);
+	out.print(codigo);
+	out.print(nombreMateria);
+	out.print(codigoMateria);
 	
-		
-	
-		
+		/*
 		switch (opcion) {
-		case 1:/*editar mostrar inputs de modificacion*/ {
+		case 1: {
 
-			/*recorrer la lista de cursos donde */
+			
 			for(Materia mater :CacheAlumnos.getInstance().getListaMaterias())
 			{
 				if(mater.getCodigo().equals(codigo))
@@ -38,11 +40,11 @@ Integer codigoMateria=Integer.valueOf(request.getParameter("codigoMateria"));
 				}
 				
 			}
-			
+			*/
 
-			break;
+			/*break;
 		}
-		case 2: /*borrar materias*/{
+		case 2: {
 			Materia mat= new Materia();
 			mat = CacheAlumnos.getInstance().obtenerMateriaConSuCodigo(codigo);
 			HashSet<Materia> listaMaterias = new HashSet<Materia>();
@@ -54,9 +56,9 @@ Integer codigoMateria=Integer.valueOf(request.getParameter("codigoMateria"));
 			response.sendRedirect("ListaMaterias.jsp");
 
 			break;
-		}
+		}*/
 
-		case 3: {
+	/*	case 3: {
 
 			Materia materia = new Materia();
 			materia.setCodigo(codigoMateria);
@@ -67,9 +69,9 @@ Integer codigoMateria=Integer.valueOf(request.getParameter("codigoMateria"));
 
 			
 			break;
-		}
-
-		case 4: {
+		}*/
+/*
+	/*	case 4: {
 		
 			for(Materia mater :CacheAlumnos.getInstance().getListaMaterias())
 			{
@@ -92,7 +94,7 @@ Integer codigoMateria=Integer.valueOf(request.getParameter("codigoMateria"));
 		}
 
 		}
-		
+		*/
 
 	
 	
@@ -100,7 +102,7 @@ Integer codigoMateria=Integer.valueOf(request.getParameter("codigoMateria"));
 	
 
 	
-	
+
 	
 
 

@@ -41,6 +41,7 @@
 					out.write("<div class='in'>Año<input type='text' id='anio' value="+cu.getAño()+"></div>");
 					out.write("<input type='button' value=''onclick='(4,"+cu.getCodigo()+");'>");
 				}
+					
 				
 			}
 			

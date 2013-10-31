@@ -51,7 +51,7 @@ function abmMaterias(opcion,codigo)
 			"&opcion="+opcion+"&codigo="+codigo, true);
 	ajax.send( "" );
 }
-/*
+
 function abmMateriasEditarCallback()
 {
 	
@@ -79,16 +79,24 @@ function abmMateriasEditar(opcion,codigo)
 
 	// Almacenamos en el control al funcion que se invocara cuando la peticion
 	// cambie de estado	
-	ajax.onreadystatechange = abmMateriasEditarCallback;
+	
+	if(opcion==4)
+	{
 
+		ajax.onreadystatechange = abmMateriasCallback;
+	}
+	else
+	{	
+	ajax.onreadystatechange = abmMateriasEditarCallback;
+	}
 	// Enviamos la peticion
 	ajax.open( "GET", "endPointMaterias.jsp?nombreMateria="+document.all.nombreMateria.value+"&codigoMateria="+document.all.codigoMateria.value+
-			"&opcion="+valor+"&codigo="+codigo, true);
+			"&opcion="+opcion+"&codigo="+codigo, true);
 	ajax.send( "" );
 }
 
 
-*/
+
 
 /*listar materias*/
 
@@ -123,6 +131,12 @@ function listarMaterias()
 	ajax.send( "" );
 }
 
+function borrCamposMat()
+{
+	document.getElementById("codigoMateria").value=" ";
+	document.getElementById("nombreMateria").value=" ";
+	
+}
 
 
 </script>

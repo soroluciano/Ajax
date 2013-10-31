@@ -11,7 +11,7 @@
 <script type="text/javascript">
 var ajax;
 
-function crearUsersCallback()
+function abmUsuariosCallback()
 {
 	// Comprobamos si la peticion se ha completado (estado 4)
 	if( ajax.readyState == 4 )
@@ -20,12 +20,12 @@ function crearUsersCallback()
 		if( ajax.status == 200 )
 		{
 			// Escribimos el resultado en la pagina HTML mediante DHTML
-			document.all.resultado.innerHTML = "<b>"+ajax.responseText+"</b>";	
+			document.all.listaUsuarios.innerHTML = "<b>"+ajax.responseText+"</b>";	
 		}
 	}
 }
 
-function crearUsers()
+function abmUsuarios()
 {
 	// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
 	if( window.XMLHttpRequest )
@@ -35,13 +35,16 @@ function crearUsers()
 
 	// Almacenamos en el control al funcion que se invocara cuando la peticion
 	// cambie de estado	
-	ajax.onreadystatechange = crearUsersCallback;
+	ajax.onreadystatechange = abmUsuariosCallback;
 
 	// Enviamos la peticion
 	ajax.open( "GET", "endpointUser.jsp?nombreUsuario="+document.all.nombreUsuario.value+"&pass="+document.all.pass.value, true);
 	ajax.send( "" );
 }
 
+
+
+/* listar usuarios*/
 function listarUsuariosCallback()
 {
 	// Comprobamos si la peticion se ha completado (estado 4)
@@ -96,7 +99,7 @@ function listarUsuarios()
 			<div class='in'>Contraseña	
 			<input type="text" name="pass" id="pass" /><br>
 			</div>
-			<input type="button" value="Crear" onclick="crearUsers();"/><br>
+			<input type="button" value="Crear" onclick="abmUsuarios();"/><br>
 			</div>
 		</div>
 		
@@ -104,7 +107,7 @@ function listarUsuarios()
 		
 		
 		
-		<div id="resultado"></div>
+		<div id="listaUsuarios"></div>
 			
 		
 	

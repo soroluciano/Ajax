@@ -25,7 +25,7 @@ Integer codigoMateria=Integer.valueOf(request.getParameter("codigoMateria"));
 	out.print(nombreMateria);
 	out.print(codigoMateria);
 	
-		/*
+		
 		switch (opcion) {
 		case 1: {
 
@@ -40,9 +40,9 @@ Integer codigoMateria=Integer.valueOf(request.getParameter("codigoMateria"));
 				}
 				
 			}
-			*/
+			
 
-			/*break;
+			break;
 		}
 		case 2: {
 			Materia mat= new Materia();
@@ -56,9 +56,9 @@ Integer codigoMateria=Integer.valueOf(request.getParameter("codigoMateria"));
 			response.sendRedirect("ListaMaterias.jsp");
 
 			break;
-		}*/
+		}
 
-	/*	case 3: {
+		case 3: {
 
 			Materia materia = new Materia();
 			materia.setCodigo(codigoMateria);
@@ -69,9 +69,9 @@ Integer codigoMateria=Integer.valueOf(request.getParameter("codigoMateria"));
 
 			
 			break;
-		}*/
-/*
-	/*	case 4: {
+		}
+
+		case 4: {
 		
 			for(Materia mater :CacheAlumnos.getInstance().getListaMaterias())
 			{
@@ -94,7 +94,7 @@ Integer codigoMateria=Integer.valueOf(request.getParameter("codigoMateria"));
 		}
 
 		}
-		*/
+		
 
 	
 	

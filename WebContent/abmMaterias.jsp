@@ -48,7 +48,7 @@ function abmMaterias(opcion,codigo)
 
 	// Enviamos la peticion
 	ajax.open( "GET", "endPointMaterias.jsp?nombreMateria="+document.all.nombreMateria.value+"&codigoMateria="+document.all.codigoMateria.value+
-			"&opcion="+valor+"&codigo="+codigo, true);
+			"&opcion="+opcion+"&codigo="+codigo, true);
 	ajax.send( "" );
 }
 /*

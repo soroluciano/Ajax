@@ -49,6 +49,7 @@ function abmCurso(opcion,codigo)
 	ajax.open( "GET", "endPointCursos.jsp?opcion="+opcion+"&codigo="+codigo+"&codigoCurso="+codigoCurso+"&nombreCurso="+nombreCurso+"&anio="+anio, true);
 	ajax.send( "" );
 }
+
 function abmCursoEditarCallback()
 {
 	// Comprobamos si la peticion se ha completado (estado 4)
@@ -65,9 +66,7 @@ function abmCursoEditarCallback()
 
 function abmCursoEditar(opcion,codigo)
 {
-	var codigoCurso=document.getElementById("codigoCurso").value;	
-	var nombreCurso=document.getElementById("nombreCurso").value;
-	var anio=document.getElementById("anio").value;
+
 	
 	// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
 	if( window.XMLHttpRequest )
@@ -75,15 +74,28 @@ function abmCursoEditar(opcion,codigo)
 	else
 		ajax = new ActiveXObject("Microsoft.XMLHTTP"); // Internet Explorer
 
-	// Almacenamos en el control al funcion que se invocara cuando la peticion
-	// cambie de estado	
-	ajax.onreadystatechange = abmCursoEditarCallback;
+	if(opcion==4)
+	{
+		ajax.onreadystatechange = abmCursoCallback;
 
-	// Enviamos la peticion
-	ajax.open( "GET", "endPointCursos.jsp?opcion="+opcion+"&codigo="+codigo+"&codigoCurso="+codigoCurso+"&nombreCurso="+nombreCurso+"&anio="+anio, true);
-	ajax.send( "" );
+		// Enviamos la peticion
+		ajax.open( "GET", "endPointCursos.jsp?opcion="+opcion+"&codigo="+codigo+"&codigoCurso="+document.all.codigoCurso2.value+"&nombreCurso="+document.all.nombreCurso2.value+"&anio="+document.all.anio2.value, true);
+		ajax.send( "" );
+		
+	}
+	else
+	{
+		ajax.onreadystatechange = abmCursoEditarCallback;
+
+		// Enviamos la peticion
+		ajax.open( "GET", "endPointCursos.jsp?opcion="+opcion+"&codigo="+codigo+"&codigoCurso="+document.all.codigoCurso.value+"&nombreCurso="+document.all.nombreCurso.value+"&anio="+document.all.anio.value, true);
+		ajax.send( "" );
+	}
+	
 }
 
+
+/*listar cursos*/
 function listarCursosCallback()
 {
 	// Comprobamos si la peticion se ha completado (estado 4)
@@ -93,7 +105,7 @@ function listarCursosCallback()
 		if( ajax.status == 200 )
 		{
 			// Escribimos el resultado en la pagina HTML mediante DHTML
-			document.all.edicion.innerHTML = "<b>"+ajax.responseText+"</b>";	
+			document.all.listaCursos.innerHTML = "<b>"+ajax.responseText+"</b>";	
 		}
 	}
 }
@@ -110,7 +122,7 @@ function listarCursos()
 
 	// Almacenamos en el control al funcion que se invocara cuando la peticion
 	// cambie de estado	
-	ajax.onreadystatechange = abmCursoEditarCallback;
+	ajax.onreadystatechange = listaCursosCallback;
 
 	// Enviamos la peticion
 	ajax.open( "GET", "listaCursos.jsp", true);
@@ -141,11 +153,6 @@ function listarCursos()
 
 		<input type="button" onclick="abmCurso(3,1);" value="Agregar Curso" />
 	</div>
-
-
-	<div id="nuevoCurso2"></div>
-	
-	<div id="agregarListaAlumnos"></div>
 
 
 	<div id="listaCursos"></div>

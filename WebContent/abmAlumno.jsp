@@ -38,7 +38,7 @@ function abmAlumno(opcion,codigo)
 	ajax.onreadystatechange = abmAlumnoCallback;
 
 	// Enviamos la peticion
-	ajax.open( "GET", "endPointAlumno.jsp?nombre="+document.all.nombreAlumno.value+"&apellido="+document.all.apellido.value+"&legajo="+document.all.legajo.value, true);
+	ajax.open( "GET", "endPointAlumno.jsp?nombre="+document.all.nombreAlumno.value+"&apellido="+document.all.apellido.value+"&legajo="+document.all.legajo.value+"&opcion="+opcion+"&codigo="+codigo, true);
 	ajax.send( "" );
 }
 </script>
@@ -48,29 +48,26 @@ function abmAlumno(opcion,codigo)
 </head>
 <body>
 <div>
-	<label>Crear Nuevo Alumno</label><br>
-		<label>Legajo</label><br>
-		<input type="text" name="legajo" id="legajo" /><br>
-		<label>Nombre</label><br>
-		<input type="text" name="nombreAlumno" id="nombreAlumno" /><br>
-		<label>Apellido</label><br>
-		<input type="text" name="apellido" id="apellido" /><br>
-		<input type="button" value="Crear" onclick="abmAlumno(1,0);"/><br>		
+	<h3>Crear Nuevo Alumno</h3>
+		<div>
+			<div class='in'>Legajo
+			<input type="text" name="legajo" id="legajo" />
+			</div>
+			<div class='in'>Nombre	
+			<input type="text" name="nombreAlumno" id="nombreAlumno" />
+			</div>
+			<div class='in'>Apellido
+			<input type="text" name="apellido" id="apellido" />
+			</div>
 		</div>
+		<input type="button" value="Crear" onclick="abmAlumno(1,0);"/>
+	
+</div>
 		<br>
 		<div id="resultado">
 		<%
 		
-		for(Alumno alumno:CacheAlumnos.getInstance().getListaAlumnos())
-		{
-			out.print(alumno.getNombre());
-			out.print("<br>");
-			out.print(alumno.getApellido());
-			out.print("<br>");
-			out.print(alumno.getLegajo());
-			
-			
-		}
+		
 		out.write("<h1>Cursos</h1>");
 		out.write("<div class='table-responsive'><table class='table'>");
 		out.write("<tr class='warning'>");
@@ -83,8 +80,6 @@ function abmAlumno(opcion,codigo)
 		out.write("</tr>");
 		for(Alumno alumno:CacheAlumnos.getInstance().getListaAlumnos())
 		{		
-			
-				
 
 				out.write("<tr>");
 				
@@ -118,14 +113,7 @@ function abmAlumno(opcion,codigo)
 				
 			
 				out.write("</td>");
-				
-				out.write("<td>");		
-				out.write("<a href='detalleCurso.jsp?codigo=");
-				out.print(alumno.getLegajo());
-				out.write("'>Ver detalle</a>");
-				
-				
-				out.write("</td>");
+			
 				
 
 

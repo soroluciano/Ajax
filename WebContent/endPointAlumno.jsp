@@ -22,15 +22,7 @@ al.setApellido(apellido);
 al.setLegajo(legajo);
 CacheAlumnos.getInstance().crearAlumno(al);
 
-for(Alumno alumno:CacheAlumnos.getInstance().getListaAlumnos())
-{
-	out.print(alumno.getNombre());
-	out.print("<br>");
-	out.print(alumno.getApellido());
-	out.print("<br>");
-	out.print(alumno.getLegajo());
-	
-}
+
 
 out.write("<h1>Cursos</h1>");
 out.write("<div class='table-responsive'><table class='table'>");
@@ -80,13 +72,10 @@ for(Alumno alumno:CacheAlumnos.getInstance().getListaAlumnos())
 	
 		out.write("</td>");
 		
-		out.write("<td>");		
-		out.write("<a href='detalleCurso.jsp?codigo=");
-		out.print(alumno.getLegajo());
-		out.write("'>Ver detalle</a>");
 		
 		
-		out.write("</td>");
+		
+	
 		
 
 

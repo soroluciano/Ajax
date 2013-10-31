@@ -78,7 +78,7 @@ function listarAlumnos()
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 
 </head>
-<body onload="listaAlumnos.jsp">
+<body onload="listarAlumnos();">
 <a href="menuPrincipal.jsp">Menu Principal</a>
 <div>
 	<h3>Crear Nuevo Alumno</h3>

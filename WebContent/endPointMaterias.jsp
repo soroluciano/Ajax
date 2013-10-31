@@ -158,22 +158,23 @@
 		case 4: {
 			
 			
-			out.print("<p>esto es el 4</p>");
-
-			for (Materia mater1 : CacheAlumnos.getInstance().getListaMaterias()) {
-
-				if (mater1.getCodigo().equals(codigoMateria)) {
-					Materia mat12 = new Materia(); 
+			//out.print("<p>esto es el 4</p>");
+			Materia mat12 = new Materia();
 					mat12 = CacheAlumnos.getInstance().obtenerMateriaConSuCodigo(codigo);
+		
+					/*borrando materia anterior*/
 					CacheAlumnos.getInstance().getListaMaterias().remove(mat12);
 					
-					
+					/*creando materia nueva*/
 					Materia materia1 = new Materia();
 					materia1.setCodigo(codigoMateria);
 					materia1.setNombre(nombreMateria);
 					
 					CacheAlumnos.getInstance().agregarMaterias(materia1);
 
+			
+					
+					/*impresion de las materias de la cache*/
 					out.write("<h1>Materias</h1>");
 					out.write("<div class='table-responsive'><table class='table'>");
 					out.write("<tr class='warning'>");
@@ -216,18 +217,17 @@
 
 						out.write("</tr>");
 
-					}/*fin del for*/
+					}
 
-				out.write("</table></div>");
+					out.write("</table></div>");
 
-				}/*fin del if*/
-
-			}//*fin for general*/
+			
 					
 					break;
-		}/*fin del case*/
-
-		}/*fin sdel switch*/
+	
+			}
+			}
+	
 	%>
 
 </body>

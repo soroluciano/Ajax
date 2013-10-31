@@ -247,6 +247,31 @@ public class CacheAlumnos {
 
 
 	}
+	public  Materia obtenerMateriaConSuCodigo(Integer codigo)
+	{
+		for(Materia materia : CacheAlumnos.getInstance().getListaMaterias())
+		{
+			if(materia.getCodigo().equals(codigo))
+			{
+
+				return materia;
+			}
+		}
+		return null;
+	}
+
+	public  Usuario obtenerUsuarioConSuCodigo(Integer codigo )
+	{
+		for(Usuario usuario: CacheAlumnos.getInstance().getListaUsuarios())
+		{
+			if(usuario.getCodigo().equals(codigo))
+			{
+
+				return usuario;
+			}
+		}
+		return null;
+	}
 
 }
 

@@ -37,8 +37,7 @@
 		}
 		case 2: {
 			Materia mat = new Materia();
-			mat = CacheAlumnos.getInstance().obtenerMateriaConSuCodigo(
-					codigo);
+			mat = CacheAlumnos.getInstance().obtenerMateriaConSuCodigo(codigo);
 			HashSet<Materia> listaMaterias = new HashSet<Materia>();
 			listaMaterias = CacheAlumnos.getInstance().getListaMaterias();
 			listaMaterias.remove(mat);

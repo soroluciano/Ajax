@@ -11,6 +11,47 @@
 <script type="text/javascript">
 var ajax;
 
+
+
+function abmUsuariosEditarCallback()
+{
+	// Comprobamos si la peticion se ha completado (estado 4)
+	if( ajax.readyState == 4 )
+	{
+		// Comprobamos si la respuesta ha sido correcta (resultado HTTP 200)
+		if( ajax.status == 200 )
+		{
+			// Escribimos el resultado en la pagina HTML mediante DHTML
+			document.all.editar.innerHTML = "<b>"+ajax.responseText+"</b>";	
+		}
+	}
+}
+
+function abmUsuariosEditar(opcion,codigo)
+{
+	// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
+	if( window.XMLHttpRequest )
+		ajax = new XMLHttpRequest(); // No Internet Explorer
+	else
+		ajax = new ActiveXObject("Microsoft.XMLHTTP"); // Internet Explorer
+
+	if(opcion==4)
+		{	ajax.onreadystatechange = abmUsuariosCallback;
+
+		// Enviamos la peticion
+		ajax.open( "GET", "endpointUser.jsp?nombreUsuario="+document.all.nombreUsuario2.value+"&pass="+document.all.pass2.value+"&opcion="+opcion+"&codigo="+codigo+"&codigoUsuario="+document.all.codigoUsuario2.value, true);
+		ajax.send( "" );}
+	else
+		{
+		ajax.onreadystatechange = abmUsuariosEditarCallback;
+
+		// Enviamos la peticion
+		ajax.open( "GET", "endpointUser.jsp?nombreUsuario="+document.all.nombreUsuario.value+"&pass="+document.all.pass.value+"&opcion="+opcion+"&codigo="+codigo+"&codigoUsuario="+document.all.codigoUsuario.value, true);
+		ajax.send( "" );
+		}
+
+}
+
 function abmUsuariosCallback()
 {
 	// Comprobamos si la peticion se ha completado (estado 4)
@@ -25,7 +66,7 @@ function abmUsuariosCallback()
 	}
 }
 
-function abmUsuarios()
+function abmUsuarios(opcion,codigo)
 {
 	// Creamos el control XMLHttpRequest segun el navegador en el que estemos 
 	if( window.XMLHttpRequest )
@@ -38,7 +79,7 @@ function abmUsuarios()
 	ajax.onreadystatechange = abmUsuariosCallback;
 
 	// Enviamos la peticion
-	ajax.open( "GET", "endpointUser.jsp?nombreUsuario="+document.all.nombreUsuario.value+"&pass="+document.all.pass.value, true);
+	ajax.open( "GET", "endpointUser.jsp?nombreUsuario="+document.all.nombreUsuario.value+"&pass="+document.all.pass.value+"&opcion="+opcion+"&codigo="+codigo+"&codigoUsuario="+document.all.codigoUsuario.value, true);
 	ajax.send( "" );
 }
 
@@ -54,7 +95,7 @@ function listarUsuariosCallback()
 		if( ajax.status == 200 )
 		{
 			// Escribimos el resultado en la pagina HTML mediante DHTML
-			document.all.resultado.innerHTML = "<b>"+ajax.responseText+"</b>";	
+			document.all.listaUsuarios.innerHTML = "<b>"+ajax.responseText+"</b>";	
 		}
 	}
 }
@@ -91,7 +132,7 @@ function listarUsuarios()
 			<div id="izq_form">
 			<h1>Crear nuevo usuario</h1>
 			<div class='in'>Codigo
-			<input type="text" name="codigo" id="codigo" /><br>
+			<input type="text" name="codigoUsuario" id="codigoUsuario" /><br>
 			</div>
 			<div class='in'>Nombre	
 			<input type="text" name="nombreUsuario" id="nombreUsuario" />
@@ -99,7 +140,7 @@ function listarUsuarios()
 			<div class='in'>Contraseña	
 			<input type="text" name="pass" id="pass" /><br>
 			</div>
-			<input type="button" value="Crear" onclick="abmUsuarios();"/><br>
+			<input type="button" value="Crear" onclick="abmUsuarios(3,1);"/><br>
 			</div>
 		</div>
 		
@@ -109,7 +150,7 @@ function listarUsuarios()
 		
 		<div id="listaUsuarios"></div>
 			
-		
+		<div id="editar"></div>
 	
 
 

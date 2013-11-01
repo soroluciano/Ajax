@@ -45,7 +45,7 @@
 		
 		out.write("<td>");
 
-		out.write("<input type='button'  value='Editar' onclick='abmCursoEditar(1,");
+		out.write("<input type='button'  value='Editar' onclick='abmUsuarioEditar(1,");
 		out.print(usu.getCodigo());
 
 		out.write(");'/>");
@@ -54,7 +54,7 @@
 
 		out.write("<td>");
 
-		out.write("<input type='button'  value='Borrar' onclick='abmCurso(2,");
+		out.write("<input type='button'  value='Borrar' onclick='abmUsuario(2,");
 		out.print(usu.getCodigo());
 
 		out.write(");'/>");

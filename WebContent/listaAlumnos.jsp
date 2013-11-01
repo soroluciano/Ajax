@@ -42,7 +42,7 @@
 				
 				out.write("<td>");		
 				
-				out.write("<input type='button'  value='Editar' onclick='abmAlumnoEditar(2,");
+				out.write("<input type='button'  value='Editar' onclick='abmAlumnoEditar(1,");
 				out.print(alumno.getLegajo());
 			
 				out.write(");'/>");	
@@ -50,7 +50,7 @@
 				out.write("<td>");	
 				
 				
-				out.write("<input type='button'  value='Borrar' onclick='abmAlumno(3,");
+				out.write("<input type='button'  value='Borrar' onclick='abmAlumno(2,");
 				out.print(alumno.getLegajo());
 			
 				out.write(");'/>");

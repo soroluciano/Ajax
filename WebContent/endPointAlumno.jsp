@@ -11,8 +11,8 @@
 </head>
 <body>
 <%
-String nombre = request.getParameter("nombre");
-String apellido = request.getParameter("apellido");
+String nombre = (String)request.getParameter("nombre");
+String apellido = (String)request.getParameter("apellido");
 Integer legajo = Integer.valueOf(request.getParameter("legajo"));
 Integer codigo = Integer.valueOf(request.getParameter("codigo"));
 Integer opcion = Integer.valueOf(request.getParameter("opcion"));
@@ -45,10 +45,11 @@ switch(opcion)
 	{
 		for (Alumno alu : CacheAlumnos.getInstance().getListaAlumnos()) 
 		{
-			if (alu.getLegajo().equals(legajo)) {
-				out.write("<div class='in'>Codigo<input type='text' id='legajo2' value="+alu.getLegajo()+"/></div>");
-				out.write("<div class='in'>Nombre <input type='text' id='nombreAlumno2' value="+ alu.getNombre()+"/></div>");
-				out.write("<div><input type='button' value='Guardar' onclick='abmAlumnoEditar(4,"+ alu.getApellido()+");'/></div>");
+			if (alu.getLegajo().equals(codigo)) {
+				out.write("<div class='in'>Legajo<input type='text' id='legajo2' value="+alu.getLegajo()+"></div>");
+				out.write("<div class='in'>Nombre <input type='text' id='nombreAlumno2' value="+ alu.getNombre()+"></div>");
+				out.write("<div class='in'>Apellido <input type='text' id='apellido2' value="+ alu.getApellido()+"></div>");
+				out.write("<div><input type='button' value='Guardar' onclick='abmAlumnoEditar(4,"+ alu.getLegajo()+");'/></div>");
 			}
 			
 		}
@@ -59,10 +60,10 @@ switch(opcion)
 	{	
 		
 		Alumno alu = new Alumno();
-		alu = CacheAlumnos.getInstance().obtenerAlumnoConSuLegajo(legajo);
+		alu = CacheAlumnos.getInstance().obtenerAlumnoConSuLegajo(codigo);
 		HashSet<Alumno> listaAlumnos = new HashSet<Alumno>();
-		listaAlumnos = CacheAlumnos.getInstance().getListaAlumnos();
-		listaAlumnos.remove(alu);
+		 CacheAlumnos.getInstance().getListaAlumnos().remove(alu);
+		
 		
 		out.write("<h1>Cursos</h1>");
 		out.write("<div class='table-responsive'><table class='table'>");
@@ -92,7 +93,7 @@ switch(opcion)
 				
 				out.write("<td>");		
 				
-				out.write("<input type='button'  value='Editar' onclick='abmAlumnoEditar(2,");
+				out.write("<input type='button'  value='Editar' onclick='abmAlumnoEditar(1,");
 				out.print(alumno.getLegajo());
 			
 				out.write(");'/>");	
@@ -100,7 +101,7 @@ switch(opcion)
 				out.write("<td>");	
 				
 				
-				out.write("<input type='button'  value='Borrar' onclick='abmAlumno(3,");
+				out.write("<input type='button'  value='Borrar' onclick='abmAlumno(2,");
 				out.print(alumno.getLegajo());
 			
 				out.write(");'/>");
@@ -162,7 +163,7 @@ switch(opcion)
 				
 				out.write("<td>");		
 				
-				out.write("<input type='button'  value='Editar' onclick='abmAlumnoEditar(2,");
+				out.write("<input type='button'  value='Editar' onclick='abmAlumnoEditar(1,");
 				out.print(alumno.getLegajo());
 			
 				out.write(");'/>");	
@@ -170,7 +171,7 @@ switch(opcion)
 				out.write("<td>");	
 				
 				
-				out.write("<input type='button'  value='Borrar' onclick='abmAlumno(3,");
+				out.write("<input type='button'  value='Borrar' onclick='abmAlumno(2,");
 				out.print(alumno.getLegajo());
 			
 				out.write(");'/>");
@@ -197,7 +198,7 @@ switch(opcion)
 		//out.print("<p>esto es el 4</p>");
 	
 		Alumno al12 = new Alumno();
-		al12 = CacheAlumnos.getInstance().obtenerAlumnoConSuLegajo(legajo);
+		al12 = CacheAlumnos.getInstance().obtenerAlumnoConSuLegajo(codigo);
 	
 				/*borrando materia anterior*/
 	
@@ -244,7 +245,7 @@ switch(opcion)
 				
 				out.write("<td>");		
 				
-				out.write("<input type='button'  value='Editar' onclick='abmAlumnoEditar(2,");
+				out.write("<input type='button'  value='Editar' onclick='abmAlumnoEditar(1,");
 				out.print(alumno.getLegajo());
 			
 				out.write(");'/>");	
@@ -252,7 +253,7 @@ switch(opcion)
 				out.write("<td>");	
 				
 				
-				out.write("<input type='button'  value='Borrar' onclick='abmAlumno(3,");
+				out.write("<input type='button'  value='Borrar' onclick='abmAlumno(2,");
 				out.print(alumno.getLegajo());
 			
 				out.write(");'/>");

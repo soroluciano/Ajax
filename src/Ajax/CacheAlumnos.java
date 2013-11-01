@@ -247,6 +247,12 @@ public class CacheAlumnos {
 
 
 	}
+	public void crearUsuario(Usuario usuario)
+	{
+		this.listaUsuarios.add(usuario);
+
+
+	}
 	public  Materia obtenerMateriaConSuCodigo(Integer codigo)
 	{
 		for(Materia materia : CacheAlumnos.getInstance().getListaMaterias())

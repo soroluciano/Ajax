@@ -134,7 +134,7 @@ function listarAlumnos()
 			<input type="text" name="apellido" id="apellido" />
 			</div>
 		</div>
-		<input type="button" value="Crear" onclick="abmAlumno(1,0);"/>
+		<input type="button" value="Crear" onclick="abmAlumno(3,0);"/>
 	
 </div>
 		<br>

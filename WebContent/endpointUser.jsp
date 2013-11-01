@@ -53,6 +53,7 @@ case 2: {
 	out.write("<tr class='warning'>");
 	out.write("<td>Codigo</td>");
 	out.write("<td>Nombre</td>");
+	out.write("<td>Password</td>");
 	out.write("<td>Editar</td>");
 	out.write("<td>Borrar</td>");
 
@@ -107,11 +108,12 @@ case 3: {
 
 	
 
-	out.write("<h1>Usuario</h1>");
+	out.write("<h1>Usuarios</h1>");
 	out.write("<div class='table-responsive'><table class='table'>");
 	out.write("<tr class='warning'>");
 	out.write("<td>Codigo</td>");
 	out.write("<td>Nombre</td>");
+	out.write("<td>Password</td>");
 	out.write("<td>Editar</td>");
 	out.write("<td>Borrar</td>");
 
@@ -129,6 +131,9 @@ case 3: {
 		out.print(user.getNombreUsuario());
 		out.write("</td>");
 
+		out.write("<td>");
+		out.print(user.getPassword());
+		out.write("</td>");
 		out.write("<td>");
 
 		out.write("<input type='button'  value='Editar' onclick='abmUsuariosEditar(1,");
@@ -160,8 +165,8 @@ case 4: {
 	
 	
 	
-	Usuario usu = new Usuario();
-			usu = CacheAlumnos.getInstance().obtenerUsuarioConSuCodigo(codigoUsuario);
+			Usuario usu = new Usuario();
+			usu = CacheAlumnos.getInstance().obtenerUsuarioConSuCodigo(codigo);
 
 			/*borrando materia anterior*/
 			CacheAlumnos.getInstance().getListaMaterias().remove(usu);

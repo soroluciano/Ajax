@@ -1,4 +1,4 @@
-<%@page import="Ajax.Alumno" %>
+<%@page import="Ajax.Usuario" %>
 <%@page import="Ajax.CacheAlumnos"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -11,39 +11,31 @@
 <body>
 
 <% 
-String nombre=request.getParameter("nombre");
-String pass=request.getParameter("pass");
+String nombre=(String)request.getParameter("nombre");
+String pass=(String)request.getParameter("pass");
 
 
-
-Alumno Usuario = new Alumno(); 
-
-
-if((CacheAlumnos.getInstance().ObtenerAlumno(nombre,pass))!=null)
+if(CacheAlumnos.getInstance().obtenerUsuario(nombre, pass)!=null)
 {
-	Usuario=CacheAlumnos.getInstance().ObtenerAlumno(nombre,pass);
+	Usuario usu= new Usuario();
+	usu=CacheAlumnos.getInstance().obtenerUsuario(nombre, pass);
 	
-	if(Usuario.getNombre().equals(nombre) && Usuario.getPassword().equals(pass))
+	if(usu.getNombreUsuario().equals(nombre) && usu.getPassword().equals(pass))
 	{
-		session.setAttribute("nombre",nombre); 
-		session.setAttribute("pass",pass);
- 		response.sendRedirect("menuPrincipal.jsp"); 
- 		
+	session.setAttribute("nombre",nombre); 
+	session.setAttribute("pass",pass);
+	response.sendRedirect("menuPrincipal.jsp"); 
+	
 	}
-	else
-	{
-		
-	response.sendRedirect("error.jsp");	
-		
-	}	
 
 }
 else
 {
-	
-response.sendRedirect("error.jsp");	
+	response.sendRedirect("login.jsp"); 
+		
 	
 }	
+
 
 %>
 <a href="menuPrincipal.jsp">menu principal</a>
